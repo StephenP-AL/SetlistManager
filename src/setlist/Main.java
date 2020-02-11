@@ -1,10 +1,10 @@
 package setlist;
 
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello Team 3");
-
         // Testing methods of Song class
         Song test = new Song();
         System.out.println(test.toString());
@@ -29,9 +29,21 @@ public class Main {
         test.toggleArchive();
         System.out.println("Should now be True: " + test.isArchive());
         //Length
-        int i = 135;
+        int i = 59;
         test.setLength(i);
         System.out.println(i + " | " + test.getLength());
         System.out.println(test.getLengthMin() + ":" + test.getLengthSec());
+        i++;
+        i++;
+        test.setLength(i);
+        System.out.println(i + " | " + test.getLength());
+        System.out.println(test.getLengthMin() + ":" + test.getLengthSec());
+        //Tempo
+        test.setTempo(i++);
+        System.out.println(test.getTempo());
+        //Order
+        test.setOrder(i++);
+        System.out.println(test.getOrder());
+        System.out.println(test.toString());
     }
 }
