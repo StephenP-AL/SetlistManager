@@ -1,5 +1,7 @@
 package setlist;
 
+import java.util.Random;
+
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
@@ -12,7 +14,6 @@ public class Song {
     private int Tempo; // in beats per minute
     private int Intro; // length of introduction in seconds
     private int Order; // for randomized sorting
-
     public Song() {
        Title = "";
        Composer = "";
@@ -162,9 +163,12 @@ public class Song {
         return this.Order;
     }
 
+    /**
+     * Sets Order field to a random int
+     */
     public void setOrderRandom(){
-        System.out.println("Not implemented");
-        //Should set order to a random number
+        Random rand = new Random();
+        this.setOrder(rand.nextInt());
     }
 
     @Override

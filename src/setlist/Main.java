@@ -44,6 +44,10 @@ public class Main {
         //Order
         test.setOrder(i++);
         System.out.println(test.getOrder());
+        //Random
+        test.setOrderRandom();
+        System.out.println(test.getOrder());
         System.out.println(test.toString());
+
     }
 }
