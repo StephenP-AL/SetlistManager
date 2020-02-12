@@ -88,7 +88,7 @@ public class Song {
         if (this.Archive) {
             this.Archive = FALSE;
         }
-        else if (this.Archive == FALSE){
+        else {
             this.Archive = TRUE;
         }
     }
@@ -168,7 +168,7 @@ public class Song {
      */
     public void setOrderRandom(){
         Random rand = new Random();
-        this.setOrder(rand.nextInt());
+        this.setOrder(rand.nextInt(214743647));
     }
 
     @Override

@@ -1,6 +1,5 @@
 package setlist;
 
-import java.util.Random;
 
 public class Main {
 
@@ -31,22 +30,25 @@ public class Main {
         //Length
         int i = 59;
         test.setLength(i);
-        System.out.println(i + " | " + test.getLength());
-        System.out.println(test.getLengthMin() + ":" + test.getLengthSec());
+        System.out.println("Length: " + i + " | " + test.getLength());
+        System.out.println("Length separated: " +test.getLengthMin() + ":" + test.getLengthSec());
         i++;
         i++;
         test.setLength(i);
-        System.out.println(i + " | " + test.getLength());
-        System.out.println(test.getLengthMin() + ":" + test.getLengthSec());
+        System.out.println("Length: " + i + " | " + test.getLength());
+        System.out.println("Length separated: " + test.getLengthMin() + ":" + test.getLengthSec());
+        //Intro
+        test.setIntro(i);
+        System.out.println("Intro: " + i + " | " + test.getIntro());
         //Tempo
-        test.setTempo(i++);
-        System.out.println(test.getTempo());
+        test.setTempo(++i);
+        System.out.println("Tempo: " + i + " | " + test.getTempo());
         //Order
-        test.setOrder(i++);
-        System.out.println(test.getOrder());
+        test.setOrder(++i);
+        System.out.println("Order: " + i + " | " + test.getOrder());
         //Random
         test.setOrderRandom();
-        System.out.println(test.getOrder());
+        System.out.println("Order randomized: " + test.getOrder());
         System.out.println(test.toString());
 
     }
