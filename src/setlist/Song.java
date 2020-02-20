@@ -5,7 +5,7 @@ import java.util.Random;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-public class Song {
+public class Song implements Comparable {
     private String Title;
     private String Composer;
     private String Key;
@@ -183,5 +183,22 @@ public class Song {
                 ", Intro=" + Intro +
                 ", Order=" + Order +
                 '}';
+    }
+
+    @Override
+    /**
+     * Case indifferently compares to another song by Composer then Title
+     * @param o Song compared to
+     * @return My mind is not working correctly to write this right now
+     */
+    public int compareTo(Object o) {
+        if ((this.getComposer().toUpperCase()).equals((((Song)o).getComposer()).toUpperCase())) {
+            System.out.println("Equal composer");
+            return (this.getTitle().toUpperCase()).compareTo((((Song) o).getTitle()).toUpperCase());
+        }
+        else{
+            return (this.getComposer().toUpperCase()).compareTo((((Song)o).getComposer()).toUpperCase());
+        }
+
     }
 }

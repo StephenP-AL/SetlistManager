@@ -51,5 +51,14 @@ public class Main {
         System.out.println("Order randomized: " + test.getOrder());
         System.out.println(test.toString());
 
+        //Song comparison
+        Song a = new Song();
+        a.setComposer("The cars");
+        a.setTitle("a song");
+        Song b = new Song();
+        b.setComposer("The Cars");
+        b.setTitle("A song");
+
+        System.out.println("Comparison: " + a.compareTo(b));
     }
 }
