@@ -1,9 +1,12 @@
 package setlist;
 
 
+import java.util.Comparator;
+
 public class Main {
 
     public static void main(String[] args) {
+        /*
         // Testing methods of Song class
         Song test = new Song();
         System.out.println(test.toString());
@@ -50,15 +53,20 @@ public class Main {
         test.setOrderRandom();
         System.out.println("Order randomized: " + test.getOrder());
         System.out.println(test.toString());
-
+*/
         //Song comparison
         Song a = new Song();
         a.setComposer("The cars");
         a.setTitle("a song");
+        a.setOrder(2);
         Song b = new Song();
         b.setComposer("The Cars");
         b.setTitle("A song");
-
+        b.setOrder(2);
         System.out.println("Comparison: " + a.compareTo(b));
+
+        Comparator<Song> comp = new SongComparatorByOrder();
+        System.out.println("Order: " + comp.compare(a,b));
+
     }
 }
