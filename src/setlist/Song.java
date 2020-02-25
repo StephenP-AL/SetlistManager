@@ -15,16 +15,14 @@ public class Song implements Comparable<Song> {
     private int Length; // song length in seconds
     private int Tempo; // in beats per minute
     private int Intro; // length of introduction in seconds
-    private int Order; // for randomized sorting
+
     public Song() {
        Title = "";
        Composer = "";
        Key = "";
-       //Archive = FALSE;
        Length = 0;
        Tempo = 0;
        Intro = 0;
-       Order = -1;
     }
     public Song(String title, String composer, String key, int length, int tempo){
         this.setTitle(title);
@@ -159,28 +157,6 @@ public class Song implements Comparable<Song> {
         return this.Tempo;
     }
 
-    /**
-     * @param order Sets list order
-     */
-    public void setOrder(int order) {
-        this.Order = order;
-    }
-
-    /**
-     * @return Returns list order
-     */
-    public int getOrder() {
-        return this.Order;
-    }
-
-    /**
-     * Sets Order field to a random int
-     */
-    public void setOrderRandom(){
-        Random rand = new Random();
-        this.setOrder(rand.nextInt(214743647));
-    }
-
     @Override
     public String toString() {
         return "Song{" +
@@ -191,7 +167,7 @@ public class Song implements Comparable<Song> {
                 ", Length=" + Length +
                 ", Tempo=" + Tempo +
                 ", Intro=" + Intro +
-                ", Order=" + Order +
+               // ", Order=" + Order +
                 '}';
     }
 

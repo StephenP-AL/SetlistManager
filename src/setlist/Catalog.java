@@ -1,6 +1,7 @@
 package setlist;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Catalog {
     private ArrayList<Song> SongList = new ArrayList<>();
@@ -17,4 +18,13 @@ public class Catalog {
     public void sortTitle(){
         SongList.sort(Song::compareTo);
     }
+    public void sortOrder(){
+        Collections.shuffle(SongList);
+    }
+    //Deprecated
+    /*public void Randomize(){
+        for (Song i: SongList){
+            i.setOrderRandom();
+        }
+    }*/
 }
