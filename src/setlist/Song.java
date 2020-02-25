@@ -26,6 +26,14 @@ public class Song implements Comparable<Song> {
        Intro = 0;
        Order = -1;
     }
+    public Song(String title, String composer, String key, int length, int tempo){
+        this.setTitle(title);
+        this.setComposer(composer);
+        this.setKey(key);
+        this.setLength(length);
+        this.setTempo(tempo);
+
+    }
 
     /**
      * @param title Title of the song.
@@ -190,7 +198,7 @@ public class Song implements Comparable<Song> {
     @Override
     public int compareTo(Song o) {
         if ((this.getComposer().toUpperCase()).equals((o.getComposer()).toUpperCase())) {
-            System.out.println("Equal composer");
+           // System.out.println("Equal composer");
             return (this.getTitle().toUpperCase()).compareTo((o.getTitle()).toUpperCase());
         }
         else{
