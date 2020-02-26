@@ -51,9 +51,9 @@ public void setLength(int i){
     //stub calls SelectNextSong and adds breaks as needed to meet total set length
     }
 
-    private Song Break(int length){
+    private Song Break(int time){
     //stub creates a break / intermission in song format and returns it
-        Song intermission = new Song("Intermission","","",length,-1);
+        Song intermission = new Song("Intermission","","","", time,-1);
         return intermission;
     }
 

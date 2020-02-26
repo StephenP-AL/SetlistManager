@@ -11,6 +11,7 @@ public class Song implements Comparable<Song> {
     private String Title;
     private String Composer;
     private String Key;
+    private String Genre;
     private boolean Archive; // if true, song will not be considered for setlists
     private int Length; // song length in seconds
     private int Tempo; // in beats per minute
@@ -20,16 +21,19 @@ public class Song implements Comparable<Song> {
        Title = "";
        Composer = "";
        Key = "";
+       Genre = "";
        Length = 0;
        Tempo = 0;
        Intro = 0;
     }
-    public Song(String title, String composer, String key, int length, int tempo){
+    public Song(String title, String composer, String key, String genre, int length, int tempo){
         this.setTitle(title);
         this.setComposer(composer);
         this.setKey(key);
+        this.setGenre(genre);
         this.setLength(length);
         this.setTempo(tempo);
+
 
     }
 
@@ -73,6 +77,14 @@ public class Song implements Comparable<Song> {
      */
     public String getKey(){
         return this.Key;
+    }
+
+    public void setGenre(String genre) {
+        Genre = genre;
+    }
+
+    public String getGenre() {
+        return Genre;
     }
 
     /**
@@ -163,11 +175,11 @@ public class Song implements Comparable<Song> {
                 "Title='" + Title + '\'' +
                 ", Composer='" + Composer + '\'' +
                 ", Key='" + Key + '\'' +
+                ", Genre = '" + Genre + '\'' +
                 ", Archive=" + Archive +
                 ", Length=" + Length +
                 ", Tempo=" + Tempo +
                 ", Intro=" + Intro +
-               // ", Order=" + Order +
                 '}';
     }
 
