@@ -79,10 +79,16 @@ public class Song implements Comparable<Song> {
         return this.Key;
     }
 
+    /**
+     * @param genre The song's genre
+     */
     public void setGenre(String genre) {
         Genre = genre;
     }
 
+    /**
+     * @return The song's genre
+     */
     public String getGenre() {
         return Genre;
     }

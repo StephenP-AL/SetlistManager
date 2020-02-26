@@ -15,13 +15,17 @@ public class Main {
         example.addSong(test3);
         example.addSong(test4);
         example.addSong(test5);
-        example.printList();
         example.sortTitle();
         System.out.println("Sorted:");
         example.printList();
+
+        Catalog example2 = example.duplicate();
         System.out.println("Shuffled: ");
-        example.sortOrder();
-        example.printList();
+        example2.Shuffle();
+        example2.printList();
+        System.out.println("Removed 2:");
+        example2.removeSong(2);
+        example2.printList();
     }
 }
 
