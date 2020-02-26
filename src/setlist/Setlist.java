@@ -1,9 +1,13 @@
 package setlist;
 
+import java.util.ArrayList;
+
 public class Setlist extends Catalog {
     private int Length; // Total length of set in seconds
     private int BreakCount; // Number of breaks / intermissions
     private int BreakLength; // Length of each break in seconds
+    private ArrayList<String> GenreRestrict;
+
 
 public void setLength(int i){
     //stub
@@ -43,6 +47,10 @@ public void setLength(int i){
         return BreakLength;
     }
 
+    public void setGenreRestrict(String input){
+    //stub Parses string of delimited genres and ads them to arraylist
+    }
+
     public void SelectNextSong(Catalog catalog){
     //stub: selects first appropriate song from catalog then sets it to null in the source catalog
     }
@@ -52,9 +60,7 @@ public void setLength(int i){
     }
 
     private Song Break(int time){
-    //stub creates a break / intermission in song format and returns it
-        Song intermission = new Song("Intermission","","","", time,-1);
-        return intermission;
+        return new Song("Intermission","","","", time,-1);
     }
 
 }
