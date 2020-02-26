@@ -15,16 +15,13 @@ public class Catalog {
             System.out.println(i.toString());
         }
     }
-    public void sortTitle(){
-        SongList.sort(Song::compareTo);
-    }
+    public void sortTitle(){SongList.sort(Song::compareTo); }
     public void sortOrder(){
         Collections.shuffle(SongList);
     }
-    //Deprecated
-    /*public void Randomize(){
-        for (Song i: SongList){
-            i.setOrderRandom();
-        }
-    }*/
+
+    public Song removeSong(int i){
+        //Stub: Should set index position to null and return song that was in the index
+        return SongList.get(1);
+    }
 }
