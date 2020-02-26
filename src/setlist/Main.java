@@ -26,6 +26,9 @@ public class Main {
         System.out.println("Removed 2:");
         example2.removeSong(2);
         example2.printList();
+
+        System.out.println((4000 % 3600)/60);
+        System.out.println(400/60);
     }
 }
 
