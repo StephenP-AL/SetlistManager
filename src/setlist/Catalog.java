@@ -15,24 +15,6 @@ public class Catalog {
     }
 
     /**
-     * @param index Index of the Song in Songlist
-     * @return
-     */
-    public Song reviewSong(int index){
-        // need some exception handling for outside of arraylist
-        while (SongList.get(index) == null ){
-            index ++;
-        }
-        Song ret = null;
-        try {
-            ret = (Song)(SongList.get(index)).clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return ret;
-    }
-
-    /**
      * Prints all songs (using toString) contained Songlist in order
      */
     public void printList(){
@@ -67,12 +49,18 @@ public class Catalog {
     }
 
     /**
-     * @return New Catalog with duplicate SongList
+     * @return New duplicate of SongList
      */
-    public Catalog duplicate(){
-        Catalog dup = new Catalog();
+    public ArrayList<Song> duplicate(){
+        ArrayList<Song> dup = new ArrayList<>();
         for (Song i:SongList){
-            dup.addSong(i);
+            //skip archived or null records
+            if (i == null || i.isArchive()){
+                continue;
+            }
+            else {
+                dup.add(i);
+            }
         }
         return dup;
     }

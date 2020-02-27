@@ -2,18 +2,24 @@ package setlist;
 
 import java.util.ArrayList;
 
-public class Setlist extends Catalog {
+public class SongSelector {
+    private ArrayList<Song> SongList = new ArrayList<>();
     private int Length; // Target length of set in seconds
     private int BreakCount; // Number of breaks / intermissions
     private int BreakLength; // Length of each break in seconds
     private ArrayList<String> GenreRestrict;
 
+    public SongSelector(ArrayList<Song> songlist, int length, int breakcount, int breaklength, String genre){
+        SongList = songlist;
+        Length = length;
+        
+    }
     /**
      * @param i Target length of the set in seconds
      */
     public void setLength(int i){
-    this.Length = i;
-}
+        this.Length = i;
+    }
 
     /**
      * @return Target length of set in seconds
@@ -75,35 +81,7 @@ public class Setlist extends Catalog {
      * @param input String of genres delimited by space or comma
      */
     public void setGenreRestrict(String input){
-    //stub Parses string of delimited genres and ads them to arraylist
-    }
-
-    /**
-     * @param index index of next song to be added
-     * @param previous The previous song added to the Setlist
-     * @return The song selected from the specificed catalog
-     */
-    private Song SelectNextSong(Song previous, int index){
-    //stub: selects first appropriate song from catalog then sets it to null in the source catalog
-        int i = 0;
-        for (Song i:super.SongList)
-        Song selected = this.removeSong(i);
-        return selected;
-    }
-
-    /**
-     * @param catalog
-     */
-    public void Populate(Catalog catalog){
-    //stub calls SelectNextSong and adds breaks as needed to meet total set length
-    }
-
-    /**
-     * @param time Length of the break
-     * @return A break formatted as a Song class
-     */
-    private Song Break(int time){
-        return new Song("Intermission","","","", time,-1);
+        //stub Parses string of delimited genres and ads them to arraylist
     }
 
 }
