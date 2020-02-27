@@ -83,9 +83,10 @@ public class Setlist extends Catalog {
      * @param previous The previous song added to the Setlist
      * @return The song selected from the specificed catalog
      */
-    public Song SelectNextSong(Catalog catalog, Song previous){
+    private Song SelectNextSong(Catalog catalog, Song previous){
     //stub: selects first appropriate song from catalog then sets it to null in the source catalog
-
+        // need some way to see if end of the invoked catalog
+        int i = 0;
         Song selected = catalog.removeSong(i);
         return selected;
     }

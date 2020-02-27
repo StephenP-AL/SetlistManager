@@ -15,6 +15,24 @@ public class Catalog {
     }
 
     /**
+     * @param index Index of the Song in Songlist
+     * @return
+     */
+    public Song reviewSong(int index){
+        // need some exception handling for outside of arraylist
+        while (SongList.get(index) == null ){
+            index ++;
+        }
+        Song ret = null;
+        try {
+            ret = (Song)(SongList.get(index)).clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    /**
      * Prints all songs (using toString) contained Songlist in order
      */
     public void printList(){
@@ -39,12 +57,12 @@ public class Catalog {
     }
 
     /**
-     * @param i Index of song to be removed
+     * @param index Index of song to be removed
      * @return The song removed from SongList
      */
-    public Song removeSong(int i){
-        Song retSong = SongList.get(i);
-        SongList.set(i,null);
+    public Song removeSong(int index){
+        Song retSong = SongList.get(index);
+        SongList.set(index,null);
         return retSong;
     }
 

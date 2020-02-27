@@ -2,6 +2,7 @@
 
 package setlist;
 
+import java.util.Collections;
 import java.util.Random;
 
 import static java.lang.Boolean.FALSE;
@@ -175,6 +176,36 @@ public class Song implements Comparable<Song> {
         return this.Tempo;
     }
 
+    /**
+     * @param compare Song being compared
+     * @param tolerence Range (from invoking song) of similarity to be considered a match. 0.1 is a 10% range
+     * @return True if the compared Song Tempo is within the specified tolerence of the invoking Song Tempo
+     */
+    public boolean matchTempo(Song compare, double tolerence){
+        double difference;
+        if (compare.getTempo() > this.getTempo()){
+            difference = compare.getTempo() - this.getTempo();
+        }
+        else{
+            difference = this.getTempo() - compare.getTempo();
+        }
+        double ratio = difference / (double) this.getTempo();
+
+        if ( ratio < tolerence){
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
+    }
+
+    /**
+     * @param compare Song being compared
+     * @return True if Key is the same, False if different
+     */
+    public boolean matchKey(Song compare){
+        return (this.getKey().equals(compare.getKey()));
+    }
     @Override
     public String toString() {
         return "Song{" +
@@ -198,5 +229,13 @@ public class Song implements Comparable<Song> {
         else{
             return (this.getComposer().toUpperCase()).compareTo((o.getComposer()).toUpperCase());
         }
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Song ret  = new Song(this.Title,this.Composer,this.Key,this.Genre,this.Length,this.Tempo);
+        ret.setIntro(this.Intro);
+        ret.setArchive(FALSE);
+        return ret;
     }
 }
