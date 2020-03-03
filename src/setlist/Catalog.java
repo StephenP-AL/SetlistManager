@@ -16,7 +16,6 @@ public class Catalog {
 
     /**
      * @param index Index of the Song in Songlist
-     * @return
      */
     public Song reviewSong(int index){
         // need some exception handling for outside of arraylist
@@ -47,7 +46,9 @@ public class Catalog {
     /**
      * Sorts SongList by default comparison
      */
-    public void sortTitle(){SongList.sort(Song::compareTo); }
+    public void sortTitle(){
+        SongList.sort(Song::compareTo);
+    }
 
     /**
      * Shuffles SongList to a random order

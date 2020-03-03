@@ -7,7 +7,6 @@ public class TitleView implements CatalogView{
 
     Catalog alphabeticalCatalog;
 
-
     @Override
     public void Sort(Catalog catalog) {
         alphabeticalCatalog = catalog.duplicate();
