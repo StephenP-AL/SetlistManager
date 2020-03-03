@@ -30,6 +30,8 @@ public class Main {
         test1.setIntro(10);
         System.out.println(test1.toString());
         System.out.println(Clonetest.toString());
+
+
     }
 }
 
