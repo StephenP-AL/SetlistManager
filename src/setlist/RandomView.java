@@ -6,6 +6,9 @@ package setlist;
 public class RandomView implements CatalogView{
     Catalog randomCatalog;
 
+    /**
+     * @param catalog Source Catalog to be shuffled
+     */
     @Override
     public void Sort(Catalog catalog) {
         randomCatalog = catalog.duplicate();

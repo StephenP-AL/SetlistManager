@@ -51,7 +51,7 @@ public class Catalog {
     }
 
     /**
-     * Shuffles SongList to a random order
+     * Shuffles SongList to a random order We should remove this from Catalog class
      */
     public void Shuffle(){
         Collections.shuffle(SongList);

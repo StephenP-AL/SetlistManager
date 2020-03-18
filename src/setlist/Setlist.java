@@ -85,20 +85,18 @@ public class Setlist extends Catalog {
      */
     private Song SelectNextSong(Song previous, int index){
     //stub: selects first appropriate song from catalog then sets it to null in the source catalog
-        int i = 0;
-        for (Song i:super.SongList)
-        Song selected = this.removeSong(i);
-        return selected;
+        return null;
     }
 
     /**
-     * @param catalog
+     * @param source Catalog view from which songs are selected
      */
-    public void Populate(Catalog catalog){
+    public void Populate(CatalogView source){
     //stub calls SelectNextSong and adds breaks as needed to meet total set length
     }
 
     /**
+     * Creates a break/intermission in the format of a Song
      * @param time Length of the break
      * @return A break formatted as a Song class
      */
@@ -106,4 +104,16 @@ public class Setlist extends Catalog {
         return new Song("Intermission","","","", time,-1);
     }
 
+    /**
+     * calculates the total length of songs with introductions in the current setlist
+      * @return Total length of the current set in seconds
+     */
+    private int LengthCurrent(){
+        int total = 0;
+        //not working right now
+      /*  for (Song s:super.duplicate()){
+           total += (s.getLength() +  s.getIntro());
+        }*/
+        return total;
+    }
 }

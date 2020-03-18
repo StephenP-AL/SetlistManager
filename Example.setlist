@@ -5,7 +5,8 @@ key:C min
 genre:R&B
 length:288
 tempo:129
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -15,7 +16,8 @@ key:C Maj
 genre:Pop
 length:250
 tempo:130
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -25,7 +27,8 @@ key:Ab Maj
 genre:Pop
 length:250
 tempo:130
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -35,7 +38,8 @@ key:Ab Maj
 genre:Children's
 length:90
 tempo:150
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -45,7 +49,8 @@ key:B min
 genre:K-pop
 length:219
 tempo:132
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -55,7 +60,8 @@ key:F# Maj
 genre:Dance
 length:213
 tempo:128
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -65,7 +71,8 @@ key:G min
 genre:R&B
 length:185
 tempo:76
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -75,7 +82,8 @@ key:G Maj
 genre: Hip Hop
 length:202
 tempo:98
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -85,7 +93,8 @@ key:Ab min
 genre:Pop
 length:210
 tempo:112
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -95,7 +104,8 @@ key:Bb Maj
 genre:Bhangra
 length:255
 tempo:150
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -105,7 +115,8 @@ key:Ab Maj
 genre:Bhangra
 length:147
 tempo:130
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -115,7 +126,8 @@ key:Db Maj
 genre:Dance
 length:216
 tempo:142
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -125,7 +137,8 @@ key:C Maj
 genre:Dance
 length:323
 tempo:125
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -135,7 +148,8 @@ key:B min
 genre:Dance
 length:288
 tempo:136
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -145,7 +159,8 @@ key:C Maj
 genre:Dance
 length:256
 tempo:138
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -155,7 +170,8 @@ key:A Maj
 genre:Disco
 length:282
 tempo:126
-achive:0
+intro:5
+archive:0
 #gnos
 
 #song
@@ -165,186 +181,7 @@ key:G Maj
 genre:Pop
 length:162
 tempo:97
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
-#gnos
-
-#song
-title:
-composer:
-key:
-genre:
-length:
-tempo:
-achive:0
+intro:5
+archive:0
 #gnos
 

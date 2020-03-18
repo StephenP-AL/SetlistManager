@@ -5,16 +5,9 @@ public class Main {
     public static void main(String[] args) {
 
         Catalog example = new Catalog();
-        Song test1 = new Song("Dsong","Bcomposer","A min","Ska",190,100);
-        Song test2 = new Song("Csong","Ecomposer","A Maj","Punk",190,130);
-        Song test3 = new Song("Asong","Ccomposer","A min","Bluegrass",190,120);
-        Song test4 = new Song("Esong","Acomposer","A min","Ragtime",190,120);
-        Song test5 = new Song("Bsong","Dcomposer","A min","Baroque",190,120);
-        example.addSong(test1);
-        example.addSong(test2);
-        example.addSong(test3);
-        example.addSong(test4);
-        example.addSong(test5);
+        FileIO open = new FileIO();
+        open.openCatalog("/home/stephen/code/SetlistManager/Example.setlist",example);
+
         System.out.println("Sorted by title:");
         TitleView sortedExampleA = new TitleView();
         sortedExampleA.Sort(example);
