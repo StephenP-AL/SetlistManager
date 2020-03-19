@@ -7,29 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        /*FileReader infile = null;
-        try
-        {
-            infile = new FileReader("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist");
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
 
-        Scanner test = new Scanner(infile);
-        String testline;
-        testline = test.nextLine();
-        System.out.println(testline);
-        testline = test.nextLine();
-        System.out.println(testline);
-        testline = test.nextLine();
-        System.out.println(testline);
-        testline = test.nextLine();
-        System.out.println(testline);
-        testline = test.nextLine();
-        System.out.println(testline);
-        testline = test.nextLine();
-        System.out.println(testline);
-*/
         Catalog example = new Catalog();
         FileIO open = new FileIO();
         open.openCatalog("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist",example);

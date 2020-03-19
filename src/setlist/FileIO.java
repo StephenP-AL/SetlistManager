@@ -6,13 +6,18 @@ import java.util.Scanner;
 
 public class FileIO {
 
-    public void openCatalog(String path, Catalog target){
+    /**
+     * openCatalog populates a Catalog with song data from a .setlist file on disk
+     * @param file Location of the .setlist file on the disk
+     * @param target Catalog to be populated
+     */
+    public void openCatalog(String file, Catalog target){
         FileReader infile;
         try {
-            infile = new FileReader(path);
+            infile = new FileReader(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Unable to open file \"" + path + "\"");
+            System.out.println("Unable to open file \"" + file + "\"");
             return;
         }
 
@@ -20,17 +25,16 @@ public class FileIO {
         // IntelliJ thinks new String() is redundant, but does not run properly without it
         String line = new String();
         boolean end = false;
-        while (scanFile.hasNextLine() && !line.equals("#eof")){
+        while (scanFile.hasNextLine()){
             // Skip anything that is not a Song
             while (!line.equals("#song")) {
                 line = scanFile.nextLine();
+                // Stops at the end of the file
                 if (line.equals("#eof")){
-                    System.out.println("end of file 2");
+                    System.out.println("end of file");
                     return;
                 }
-              //  System.out.println(line + " | " + line.equals("#song"));
             }
-            //System.out.println("out");
             Song newSong = new Song();
             //parse the song data
             while (!line.equals("#gnos")) {
@@ -70,5 +74,9 @@ public class FileIO {
             target.addSong(newSong);
         }
         System.out.println("Something went wrong");
+    }
+
+    public void writeCatalog(Catalog source, String file){
+        //stub
     }
 }
