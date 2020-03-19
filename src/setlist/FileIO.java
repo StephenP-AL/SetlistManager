@@ -17,15 +17,23 @@ public class FileIO {
         }
 
         Scanner scanFile = new Scanner (infile);
-        String line;
-        while (scanFile.hasNextLine()){
+        // IntelliJ thinks new String() is redundant, but does not run properly without it
+        String line = new String();
+        boolean end = false;
+        while (scanFile.hasNextLine() && !line.equals("#eof")){
             // Skip anything that is not a Song
-            do {
+            while (!line.equals("#song")) {
                 line = scanFile.nextLine();
-            } while (!line.equals("#song"));
+                if (line.equals("#eof")){
+                    System.out.println("end of file 2");
+                    return;
+                }
+              //  System.out.println(line + " | " + line.equals("#song"));
+            }
+            //System.out.println("out");
             Song newSong = new Song();
             //parse the song data
-            do {
+            while (!line.equals("#gnos")) {
                 line = scanFile.nextLine();
                 if(line.startsWith("title:")){
                     newSong.setTitle(line.substring(6));
@@ -57,14 +65,10 @@ public class FileIO {
                 else if (line.equals("gnos")){
                     break;
                 }
-                else{
-                    continue;
-                }
-            } while (!line.equals("#gnos"));
-
+            }
+            System.out.println(newSong.toString());
             target.addSong(newSong);
         }
-
-
+        System.out.println("Something went wrong");
     }
 }

@@ -1,12 +1,39 @@
 package setlist;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
+        /*FileReader infile = null;
+        try
+        {
+            infile = new FileReader("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist");
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
 
+        Scanner test = new Scanner(infile);
+        String testline;
+        testline = test.nextLine();
+        System.out.println(testline);
+        testline = test.nextLine();
+        System.out.println(testline);
+        testline = test.nextLine();
+        System.out.println(testline);
+        testline = test.nextLine();
+        System.out.println(testline);
+        testline = test.nextLine();
+        System.out.println(testline);
+        testline = test.nextLine();
+        System.out.println(testline);
+*/
         Catalog example = new Catalog();
         FileIO open = new FileIO();
-        open.openCatalog("/home/stephen/code/SetlistManager/Example.setlist",example);
+        open.openCatalog("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist",example);
+
 
         System.out.println("Sorted by title:");
         TitleView sortedExampleA = new TitleView();
