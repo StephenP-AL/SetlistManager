@@ -14,6 +14,8 @@ public class Main {
         for (Object i:example.reviewSongList()){
             System.out.println(i.toString());
         }
+
+        open.writeCatalog(example,"D:\\Code\\out.setlist");
         /*
         System.out.println("Sorted by title:");
         TitleView sortedExampleA = new TitleView();

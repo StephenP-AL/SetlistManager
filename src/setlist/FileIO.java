@@ -2,6 +2,7 @@ package setlist;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileIO {
@@ -76,6 +77,11 @@ public class FileIO {
         System.out.println("Something went wrong");
     }
 
+    /**
+     * Writes Song data from Catalog to file on disk
+     * @param source Catalog that contains song data to be written
+     * @param file Path on disk of file to be written
+     */
     public void writeCatalog(Catalog source, String file){
         boolean overwrite = false;
         FileReader infile;
@@ -87,8 +93,60 @@ public class FileIO {
         if (overwrite){
             //some sort of warning about overwriting existing files
         }
-        for(Object i:source.reviewSongList()){
+        PrintWriter out = null;
+        try {
+            out =  new PrintWriter(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
+        for(Object i:source.reviewSongList()){
+            if (out != null) {
+                out.println("#song");
+            }
+            if (out != null) {
+                out.println("title:" + ((Song)i).getTitle());
+            }
+            if (out != null) {
+                out.println("Composer:" + ((Song)i).getComposer());
+            }
+            if (out != null) {
+                out.println("key:" + ((Song)i).getKey());
+            }
+            if (out != null) {
+                out.println("genre:" + ((Song)i).getGenre());
+            }
+            if (out != null) {
+                out.println("length:" + ((Song)i).getLength());
+            }
+            if (out != null) {
+                out.println("tempo:" + ((Song)i).getTempo());
+            }
+            if (out != null) {
+                out.println("intro:" + ((Song)i).getIntro());
+            }
+            if(((Song)i).isArchive()){
+                if (out != null) {
+                    out.println("archive:1");
+                }
+            }
+            else{
+                if (out != null) {
+                    out.println("archive:0");
+                }
+            }
+            if (out != null) {
+                out.println("#gnos");
+            }
+            if (out != null) {
+                out.println("");
+            }
+        }
+        if (out != null) {
+            out.println("#eof");
+        }
+        if (out != null) {
+            out.close();
         }
     }
 }
