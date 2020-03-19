@@ -11,8 +11,10 @@ public class Main {
         Catalog example = new Catalog();
         FileIO open = new FileIO();
         open.openCatalog("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist",example);
-
-
+        for (Object i:example.reviewSongList()){
+            System.out.println(i.toString());
+        }
+        /*
         System.out.println("Sorted by title:");
         TitleView sortedExampleA = new TitleView();
         sortedExampleA.Sort(example);
@@ -27,7 +29,7 @@ public class Main {
         sortedExampleB.Sort(example);
         example = sortedExampleB.getList();
         example.printList();
-
+        */
 
         /*
         Catalog example2 = example.duplicate();

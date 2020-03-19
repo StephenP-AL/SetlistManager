@@ -77,4 +77,12 @@ public class Catalog {
         }
         return dup;
     }
+    public ArrayList reviewSongList(){
+        ArrayList dup = new ArrayList();
+        for (Song i:SongList) {
+            dup.add(i);
+        }
+        return dup;
+
+    }
 }

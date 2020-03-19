@@ -22,7 +22,7 @@ public class FileIO {
         }
 
         Scanner scanFile = new Scanner (infile);
-        // IntelliJ thinks new String() is redundant, but does not run properly without it
+        // IntelliJ thinks 'new String()' is redundant, but does not run properly without it
         String line = new String();
         boolean end = false;
         while (scanFile.hasNextLine()){
@@ -30,8 +30,8 @@ public class FileIO {
             while (!line.equals("#song")) {
                 line = scanFile.nextLine();
                 // Stops at the end of the file
-                if (line.equals("#eof")){
-                    System.out.println("end of file");
+                if (line.equals("#eof") || !scanFile.hasNextLine()){
+                    //System.out.println("end of file");
                     return;
                 }
             }
@@ -70,13 +70,25 @@ public class FileIO {
                     break;
                 }
             }
-            System.out.println(newSong.toString());
+            //System.out.println(newSong.toString());
             target.addSong(newSong);
         }
         System.out.println("Something went wrong");
     }
 
     public void writeCatalog(Catalog source, String file){
-        //stub
+        boolean overwrite = false;
+        FileReader infile;
+        try {
+            infile = new FileReader(file);
+        } catch (FileNotFoundException e) {
+            overwrite = true;
+        }
+        if (overwrite){
+            //some sort of warning about overwriting existing files
+        }
+        for(Object i:source.reviewSongList()){
+
+        }
     }
 }
