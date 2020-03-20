@@ -24,19 +24,14 @@ public class Main {
             //System.out.println(i.toString());
         //}
 
-        System.out.println("");
+        System.out.println();
         System.out.println("Testing SongSelector");
         SongSelector select = new SongSelector(random);
 
         Song temp = new Song("a","b","c","g",1,1);
-        while (true){
-            temp = select.nextSong();
-            if (temp != null){
-                System.out.println(temp.toString());
-            }
-            else{
-                break;
-            }
+        for (int i = 0; i < 10; i++){
+            System.out.println(temp.toString());
+            temp = select.nextSong(temp,i);
         }
 
 
