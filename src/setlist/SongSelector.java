@@ -8,31 +8,33 @@ import static java.lang.Boolean.TRUE;
 public class SongSelector {
     private CatalogView view;
     private ArrayList<Song> SongList;
-    private Song prev; // Initially set to
+    private Song prev; // Initially set out of range
+    private boolean toggle; //
     public SongSelector(CatalogView v){
         view = v;
         SongList = view.getList().reviewSongList();
         prev = new Song("t","c","H# Maj","G",1,5000);
+        toggle = true;
         System.out.println("SongSelector created" + prev.toString());
     }
 
     /**
      * Selects the next appropriate Song for a Setlist
-     * @param index Index of the ArrayList where the Song will be added. This is used to determine if key or tempo will be compared to the previous Song
      * @return Returns a Song if an appropriate one is found, or null if no appropriate Songs exist.
      */
-    public Song nextSong(int index){
+    public Song nextSong(){
         for (int i = 0; i < SongList.size(); i++ ){
             if (SongList.get(i) == null){
-                System.out.println(1);
+                //System.out.println(1);
                 continue;
             }
-            if (index % 2 == 1){
+            if (toggle){
                 //System.out.println("odd");
                 if (SongList.get(i).getKey().equals(prev.getKey())){
                     continue;
                 }
                 else{
+                    toggle = false;
                     prev = SongList.get(i);
                     SongList.remove(i);
                     return prev;
@@ -50,6 +52,7 @@ public class SongSelector {
                 double ratio = difference / (double) prev.getTempo();
                 //System.out.println(ratio);
                 if ( ratio > 0.1){
+                    toggle = true;
                     prev = SongList.get(i);
                     SongList.remove(i);
                     return prev;

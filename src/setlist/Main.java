@@ -29,12 +29,9 @@ public class Main {
         SongSelector select = new SongSelector(random);
 
         Song temp = new Song("a","b","c","g",1,1);
-        int i = 0;
         while (true){
-            temp = select.nextSong(i);
+            temp = select.nextSong();
             if (temp != null){
-
-                i++;
                 System.out.println(temp.toString());
             }
             else{
