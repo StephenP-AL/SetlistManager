@@ -102,9 +102,9 @@ public class Setlist extends Catalog {
     private int LengthCurrent(){
         int total = 0;
         //not working right now
-      /*  for (Song s:super.duplicate()){
-           total += (s.getLength() +  s.getIntro());
-        }*/
+        for (Object s:super.reviewSongList()){
+           total += (((Song)s).getLength() +  ((Song)s).getIntro());
+        }
         return total;
     }
 }
