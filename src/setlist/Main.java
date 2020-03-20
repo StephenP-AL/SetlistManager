@@ -11,12 +11,42 @@ public class Main {
         Catalog example = new Catalog();
         FileIO open = new FileIO();
         open.openCatalog("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist",example);
-        for (Object i:example.reviewSongList()){
+        /*for (Object i:example.reviewSongList()){
             System.out.println(i.toString());
         }
+        System.out.println(example.reviewSongList().size());
+        TitleView sortedExampleA = new TitleView();
+        sortedExampleA.Sort(example);*/
 
-        open.writeCatalog(example,"D:\\Code\\out.setlist");
-        /*
+        RandomView random = new RandomView();
+        random.Sort(example);
+        //for (Object i:random.getList().reviewSongList()){
+            //System.out.println(i.toString());
+        //}
+
+        System.out.println("");
+        System.out.println("Testing SongSelector");
+        SongSelector select = new SongSelector(random);
+
+        Song temp = new Song("a","b","c","g",1,1);
+        int i = 0;
+        while (true){
+            temp = select.nextSong(i);
+            if (temp != null){
+
+                i++;
+                System.out.println(temp.toString());
+            }
+            else{
+                break;
+            }
+        }
+
+
+
+
+//        open.writeCatalog(sortedExampleA.getList(),"D:\\Code\\out.setlist");
+/*
         System.out.println("Sorted by title:");
         TitleView sortedExampleA = new TitleView();
         sortedExampleA.Sort(example);

@@ -2,86 +2,64 @@ package setlist;
 
 import java.util.ArrayList;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class SongSelector {
-    private ArrayList<Song> SongList = new ArrayList<>();
-    private int Length; // Target length of set in seconds
-    private int BreakCount; // Number of breaks / intermissions
-    private int BreakLength; // Length of each break in seconds
-    private ArrayList<String> GenreRestrict;
-
-    public SongSelector(ArrayList<Song> songlist, int length, int breakcount, int breaklength, String genre){
-        SongList = songlist;
-        Length = length;
-        
-    }
-    /**
-     * @param i Target length of the set in seconds
-     */
-    public void setLength(int i){
-        this.Length = i;
+    private CatalogView view;
+    private ArrayList<Song> SongList;
+    private Song prev; // Initially set to
+    public SongSelector(CatalogView v){
+        view = v;
+        SongList = view.getList().reviewSongList();
+        prev = new Song("t","c","H# Maj","G",1,5000);
+        System.out.println("SongSelector created" + prev.toString());
     }
 
     /**
-     * @return Target length of set in seconds
+     * Selects the next appropriate Song for a Setlist
+     * @param index Index of the ArrayList where the Song will be added. This is used to determine if key or tempo will be compared to the previous Song
+     * @return Returns a Song if an appropriate one is found, or null if no appropriate Songs exist.
      */
-    public int getLength() {
-        return Length;
+    public Song nextSong(int index){
+        for (int i = 0; i < SongList.size(); i++ ){
+            if (SongList.get(i) == null){
+                System.out.println(1);
+                continue;
+            }
+            if (index % 2 == 1){
+                //System.out.println("odd");
+                if (SongList.get(i).getKey().equals(prev.getKey())){
+                    continue;
+                }
+                else{
+                    prev = SongList.get(i);
+                    SongList.remove(i);
+                    return prev;
+                }
+            }
+            else{
+                //System.out.println("even");
+                double difference;
+                if (prev.getTempo() > SongList.get(i).getTempo()){
+                    difference = prev.getTempo() - SongList.get(i).getTempo();
+                }
+                else{
+                    difference = SongList.get(i).getTempo() - prev.getTempo();
+                }
+                double ratio = difference / (double) prev.getTempo();
+                //System.out.println(ratio);
+                if ( ratio > 0.1){
+                    prev = SongList.get(i);
+                    SongList.remove(i);
+                    return prev;
+                }
+                else {
+                    continue;
+                }
+            }
+        }
+        // No appropriate songs
+        return null;
     }
-
-    /**
-     * @return Target length of set in whole hours
-     */
-    public int getLengthHour(){
-        return (Length / 3600);
-    }
-
-    /**
-     * @return Remaining minutes in target length of set less whole hours
-     */
-    public int getLengthMinute(){
-        return ((Length % 3600) / 60);
-    }
-
-    /**
-     * @return Remaining seconds in target set length less whole hours and whole minutes
-     */
-    public int getLengthSecond(){
-        return (Length % 60 );
-    }
-
-    /**
-     * @param i Number of breaks or intermissions in the set`
-     */
-    public void setBreakCount(int i){
-        BreakCount = i;
-    }
-
-    /**
-     * @return Number of breaks or intermissions in the set
-     */
-    public int getBreakCount() {
-        return BreakCount;
-    }
-
-    /**
-     * @param breakLength Length of break or intermission in seconds
-     */
-    public void setBreakLength(int breakLength) {
-        BreakLength = breakLength;
-    }
-
-    /**
-     * @return Length of break or intermission in seconds
-     */
-    public int getBreakLength() {
-        return BreakLength;
-    }
-
-    /**
-     * @param input String of genres delimited by space or comma
-     */
-    public void setGenreRestrict(String input){
-        //stub Parses string of delimited genres and ads them to arraylist
-    }
-
 }
