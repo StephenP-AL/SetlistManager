@@ -1,5 +1,6 @@
 package setlist;
 
+
 import java.util.ArrayList;
 
 public class Setlist extends Catalog {
@@ -12,8 +13,8 @@ public class Setlist extends Catalog {
      * @param i Target length of the set in seconds
      */
     public void setLength(int i){
-    this.Length = i;
-}
+        this.Length = i;
+    }
 
     /**
      * @return Target length of set in seconds
@@ -75,7 +76,7 @@ public class Setlist extends Catalog {
      * @param input String of genres delimited by space or comma
      */
     public void setGenreRestrict(String input){
-    //stub Parses string of delimited genres and ads them to arraylist
+        //stub Parses string of delimited genres and ads them to arraylist
     }
 
     /**
@@ -84,16 +85,16 @@ public class Setlist extends Catalog {
      * @return The song selected from the specificed catalog
      */
     private Song SelectNextSong(Song previous, int index){
-    //stub: selects first appropriate song from catalog then sets it to null in the source catalog
+        //stub: selects first appropriate song from catalog then sets it to null in the source catalog
         return null;
     }
 
     /**
      * @param source Catalog view from which songs are selected
      */
-    public void Populate(CatalogView source){
-    //stub calls SelectNextSong and adds breaks as needed to meet total set length
-    }
+    /*public void Populate(CatalogView source){
+        //stub calls SelectNextSong and adds breaks as needed to meet total set length
+    }*/
 
     /**
      * Creates a break/intermission in the format of a Song
@@ -101,12 +102,12 @@ public class Setlist extends Catalog {
      * @return A break formatted as a Song class
      */
     private Song Break(int time){
-        return new Song("Intermission","","","", time,-1);
+        return new Song("Intermission","","","", time,-1,1,false);
     }
 
     /**
      * calculates the total length of songs with introductions in the current setlist
-      * @return Total length of the current set in seconds
+     * @return Total length of the current set in seconds
      */
     private int LengthCurrent(){
         int total = 0;

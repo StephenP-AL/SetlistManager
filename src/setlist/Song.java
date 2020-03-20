@@ -19,23 +19,39 @@ public class Song implements Comparable<Song> {
     private int Intro; // length of introduction in seconds
 
     public Song() {
-       Title = "";
-       Composer = "";
-       Key = "";
-       Genre = "";
-       Length = 0;
-       Tempo = 0;
-       Intro = 0;
+        Title = "";
+        Composer = "";
+        Key = "";
+        Genre = "";
+        Length = 0;
+        Tempo = 0;
+        Intro = 0;
+        this.setArchive(false);
     }
-    public Song(String title, String composer, String key, String genre, int length, int tempo){
+    public Song(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive){
         this.setTitle(title);
         this.setComposer(composer);
         this.setKey(key);
         this.setGenre(genre);
         this.setLength(length);
         this.setTempo(tempo);
+        this.setIntro(intro);
+        this.setArchive(archive);
 
-
+    }
+    public boolean equals(Song s) {
+        if (Title.equals(s.getTitle())
+                && Composer.equals(s.getComposer())
+                && Key.equals(s.getKey())
+                && Genre.equals(s.getGenre())
+                && Archive == s.isArchive()
+                && Length == s.getLength()
+                && Tempo == s.getTempo()
+                && Intro == s.getIntro()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -223,7 +239,7 @@ public class Song implements Comparable<Song> {
     @Override
     public int compareTo(Song o) {
         if ((this.getTitle().toUpperCase()).equals((o.getTitle()).toUpperCase())) {
-           // System.out.println("Equal composer");
+            // System.out.println("Equal composer");
             return (this.getTitle().toUpperCase()).compareTo((o.getTitle()).toUpperCase());
         }
         else{
@@ -233,7 +249,7 @@ public class Song implements Comparable<Song> {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Song ret  = new Song(this.Title,this.Composer,this.Key,this.Genre,this.Length,this.Tempo);
+        Song ret  = new Song(this.Title,this.Composer,this.Key,this.Genre,this.Length,this.Tempo,this.Intro,this.Archive);
         ret.setIntro(this.Intro);
         ret.setArchive(FALSE);
         return ret;
