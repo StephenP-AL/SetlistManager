@@ -25,13 +25,12 @@ public class Main {
         //}
 
         System.out.println();
-        System.out.println("Testing SongSelector");
-        SongSelector select = new SongSelector(random);
+        System.out.println("Testing Setlist");
 
-        Song temp = new Song("a","b","c","g",1,1);
-        for (int i = 0; i < 10; i++){
-            System.out.println(temp.toString());
-            temp = select.nextSong(temp,i);
+        Setlist set = new Setlist(2000,2,60);
+        set.Populate(random);
+        set.printList();
+
         }
 
 
@@ -73,5 +72,5 @@ public class Main {
         */
 
     }
-}
+
 

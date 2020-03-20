@@ -1,12 +1,20 @@
 package setlist;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Setlist extends Catalog {
     private int Length; // Target length of set in seconds
     private int BreakCount; // Number of breaks / intermissions
     private int BreakLength; // Length of each break in seconds
     private ArrayList<String> GenreRestrict;
+
+
+    public Setlist(int l, int bc, int bl){
+        Length = l;
+        BreakCount = bc;
+        BreakLength = bl;
+    }
 
     /**
      * @param i Target length of the set in seconds
@@ -83,16 +91,46 @@ public class Setlist extends Catalog {
      * @param source Catalog view from which songs are selected
      */
     public void Populate(CatalogView source){
-    //stub calls SelectNextSong and adds breaks as needed to meet total set length
+        SongSelector select = new SongSelector(source);
+        Song prev = new Song("a","b","c","g",1,1);
+        int index = 0;
+
+        // Variables for dealing with breaks
+        boolean[] breakState = new boolean[BreakCount];
+        for (int i = 0; i < BreakCount; i++){
+            breakState[i] = false;
+        }
+        int playSegment = Length / (BreakCount + 1);
+
+        while (LengthCurrent() < Length){
+            for (int i = 0; i < BreakCount; i++){
+                if (!breakState[i] && (LengthCurrent() > (playSegment * (i + 1) - (BreakLength / 2)))){
+                    System.out.println(LengthCurrent() + " | " + (playSegment * (i + 1)));
+                    addSong(Break());
+                    breakState[i] = true;
+                }
+            }
+            Song next =  (select.nextSong(prev,index));
+            if (next != null) {
+                addSong(next);
+                prev = next;
+                System.out.println(next.getTitle() + LengthCurrent());
+                index++;
+            }
+            else{
+                System.out.println("SongSelector did not return a suitable Song.");
+                break;
+            }
+        }
+
     }
 
     /**
      * Creates a break/intermission in the format of a Song
-     * @param time Length of the break
      * @return A break formatted as a Song class
      */
-    private Song Break(int time){
-        return new Song("Intermission","","","", time,-1);
+    private Song Break(){
+        return new Song("-INTERMISSION-","","","", BreakLength,-1);
     }
 
     /**
@@ -103,7 +141,9 @@ public class Setlist extends Catalog {
         int total = 0;
         //not working right now
         for (Object s:super.reviewSongList()){
-           total += (((Song)s).getLength() +  ((Song)s).getIntro());
+            if (!(s == null)) {
+                total += (((Song) s).getLength() + ((Song) s).getIntro());
+            }
         }
         return total;
     }
