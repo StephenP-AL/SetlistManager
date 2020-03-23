@@ -105,7 +105,7 @@ public class Setlist extends Catalog {
 
     public void Populate(CatalogView source){
         SongSelector select = new SongSelector(source);
-        Song prev = new Song("a","b","c","g",1,1);
+        Song prev = new Song("a","b","c","g",1,1,1,false);
         int index = 0;
 
         // Variables for dealing with breaks
@@ -119,7 +119,7 @@ public class Setlist extends Catalog {
             for (int i = 0; i < BreakCount; i++){
                 if (!breakState[i] && (LengthCurrent() > (playSegment * (i + 1) - (BreakLength / 2)))){
                     System.out.println(LengthCurrent() + " | " + (playSegment * (i + 1)));
-                    addSong(Break());
+                    addSong(Break(5));
                     breakState[i] = true;
                 }
             }

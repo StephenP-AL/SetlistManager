@@ -33,8 +33,6 @@ public class Main {
 //         }
 
 
-
-
 //        open.writeCatalog(sortedExampleA.getList(),"D:\\Code\\out.setlist");
 /*
         System.out.println("Sorted by title:");
@@ -126,5 +124,6 @@ public class Main {
 //        */
 
     }
+}
 
 

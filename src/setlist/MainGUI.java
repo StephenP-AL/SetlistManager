@@ -140,7 +140,7 @@ public class MainGUI {
             }
         });
         setlistButtons.addListElement(generate);
-        Setlist setlist = new Setlist();
+        Setlist setlist = new Setlist(1, 1, 1);
         SettingsGUI settingsGUI = new SettingsGUI(setlist);
         settings.addActionListener(new ActionListener() {
             @Override
