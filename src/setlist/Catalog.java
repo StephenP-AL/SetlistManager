@@ -36,6 +36,16 @@ public class Catalog {
         return ret;
     }
 
+    public Song getSong(int index) {
+        if (index >= SongList.size()) {
+            return null;
+        }
+        while (SongList.get(index) == null ){
+            index ++;
+        }
+        return SongList.get(index);
+    }
+
     /**
      * Prints all songs (using toString) contained Songlist in order
      */

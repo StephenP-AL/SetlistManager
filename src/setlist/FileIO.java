@@ -123,7 +123,7 @@ public class FileIO {
         }
         PrintWriter out = null;
         try {
-            out =  new PrintWriter(new FileWriter(file, true));
+            out =  new PrintWriter(new FileWriter(file, false));
         } catch (IOException e) {
             e.printStackTrace();
         }

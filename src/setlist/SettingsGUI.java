@@ -3,12 +3,12 @@ package setlist;
 import javax.swing.*;
 import java.awt.*;
 
-public class SettingsView extends JPanel {
+public class SettingsGUI extends JPanel {
     private JTextField setLengthTextField = new JTextField();
     private JTextField breakLengthTextField = new JTextField();
     private JTextField breakAmountTextField = new JTextField();
 
-    public SettingsView(Setlist s) {
+    public SettingsGUI(Setlist s) {
         setLayout(new GridLayout(3, 2));
 
         JLabel setLengthLabel = new JLabel("Set Length:");

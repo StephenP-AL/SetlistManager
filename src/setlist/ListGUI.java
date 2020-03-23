@@ -3,18 +3,18 @@ package setlist;
 import javax.swing.*;
 import java.awt.*;
 
-public class ListView extends JPanel {
+public class ListGUI extends JPanel {
     BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 
     private void create() {
         setLayout(layout);
     }
 
-    public ListView() {
+    public ListGUI() {
         create();
     }
 
-    public ListView(Component c){
+    public ListGUI(Component c){
         create();
         add(c);
     }

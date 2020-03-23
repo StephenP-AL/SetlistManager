@@ -3,7 +3,7 @@ package setlist;
 import javax.swing.*;
 import java.awt.*;
 
-public class SongPropertiesView extends JPanel {
+public class SongPropertiesGUI extends JPanel {
 
     private JTextField titleTextField = new JTextField();
     private JTextField composerTextField = new JTextField();
@@ -102,20 +102,20 @@ public class SongPropertiesView extends JPanel {
         add(archivePanel);
     }
 
-    public SongPropertiesView() {
+    public SongPropertiesGUI() {
         Song s = new Song("", "", "", "", 0, 0, 0, false);
         create(s);
     }
 
-    public SongPropertiesView(Song s) {
+    public SongPropertiesGUI(Song s) {
         create(s);
     }
 
-    public SongPropertiesView(SongPropertiesView spv) {
+    public SongPropertiesGUI(SongPropertiesGUI spv) {
         create(new Song(spv.getTitle(), spv.getComposer(), spv.getKey(), spv.getGenre(), spv.getLength(), spv.getTempo(), spv.getIntro(), spv.getArchive()));
     }
 
-    public SongPropertiesView(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive) {
+    public SongPropertiesGUI(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive) {
         Song s = new Song(title, composer, key, genre, length, tempo, intro, archive);
         create(s);
     }

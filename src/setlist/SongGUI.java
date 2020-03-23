@@ -3,7 +3,7 @@ package setlist;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-public class SongView extends JPanel {
+public class SongGUI extends JPanel {
 
     private String title;
     private String composer;
@@ -107,7 +107,7 @@ public class SongView extends JPanel {
         setBorder(BorderFactory.createRaisedBevelBorder());
     }
 
-    public SongView() {
+    public SongGUI() {
         title = " ";
         composer = " ";
         key = " ";
@@ -119,7 +119,7 @@ public class SongView extends JPanel {
         create();
     }
 
-    public SongView(Song s) {
+    public SongGUI(Song s) {
         title = s.getTitle();
         composer = s.getComposer();
         key = s.getKey();
@@ -131,7 +131,7 @@ public class SongView extends JPanel {
         create();
     }
 
-    public SongView(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive) {
+    public SongGUI(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive) {
         this.title = title;
         this.composer = composer;
         this.key = key;

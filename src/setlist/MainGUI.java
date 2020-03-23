@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainView {
+public class MainGUI {
     public static void createAndShowGUI() {
         Catalog c = new Catalog();
         FileIO fileIO = new FileIO();
@@ -46,14 +46,14 @@ public class MainView {
         JButton exportSetlist = new JButton("Export Setlist");
         exportSetlist.setBorder(buttonBorder);
 
-        ListView catalogList = new ListView();
+        ListGUI catalogList = new ListGUI();
         JScrollPane catalogScroll = new JScrollPane(catalogList, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         catalogScroll.setBorder(space);
 
-        ListView catalogButtons = new ListView();
+        ListGUI catalogButtons = new ListGUI();
         catalogButtons.setBorder(space);
         catalogButtons.addListElement(addSong);
-        SongPropertiesView addSongView = new SongPropertiesView();
+        SongPropertiesGUI addSongView = new SongPropertiesGUI();
         addSong.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,8 +82,8 @@ public class MainView {
                     }
                     Song songToAdd = new Song(p1, p2, p3, p4, p5, p6, p7, p8);
                     c.addSong(songToAdd);
-                    SongPropertiesView elementView = new SongPropertiesView(addSongView);
-                    catalogList.addListElement(new SongButtonView(songToAdd, elementView, c, catalogList));
+                    SongPropertiesGUI elementView = new SongPropertiesGUI(addSongView);
+                    catalogList.addListElement(new SongButtonGUI(songToAdd, elementView, c, catalogList));
                 }
             }
         });
@@ -98,8 +98,8 @@ public class MainView {
                     fileIO.openCatalog(filename, c);
                     Song fileSong;
                     int i = 0;
-                    while ((fileSong = c.reviewSong(i)) != null) {
-                        catalogList.addListElement(new SongButtonView(fileSong, new SongPropertiesView(fileSong), c, catalogList));
+                    while ((fileSong = c.getSong(i)) != null) {
+                        catalogList.addListElement(new SongButtonGUI(fileSong, new SongPropertiesGUI(fileSong), c, catalogList));
                         ++i;
                     }
                 }
@@ -118,39 +118,39 @@ public class MainView {
             }
         });
 
-        PageView catalogPage = new PageView(catalogScroll, catalogButtons);
+        PageGUI catalogPage = new PageGUI(catalogScroll, catalogButtons);
 
         //------------------------------------------------------------------------
 
-        ListView setlistList = new ListView();
+        ListGUI setlistList = new ListGUI();
         JScrollPane setlistScroll = new JScrollPane(setlistList, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         setlistScroll.setBorder(space);
 
-        ListView setlistButtons = new ListView();
+        ListGUI setlistButtons = new ListGUI();
         setlistButtons.setBorder(space);
         generate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Song cSong;
                 int i = 0;
-                while ((cSong = c.reviewSong(i)) != null) {
-                    setlistList.addListElement(new SongView(cSong));
+                while ((cSong = c.getSong(i)) != null) {
+                    setlistList.addListElement(new SongGUI(cSong));
                     ++i;
                 }
             }
         });
         setlistButtons.addListElement(generate);
         Setlist setlist = new Setlist();
-        SettingsView settingsView = new SettingsView(setlist);
+        SettingsGUI settingsGUI = new SettingsGUI(setlist);
         settings.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int r = JOptionPane.showConfirmDialog(frame, settingsView, "Setlist Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+                int r = JOptionPane.showConfirmDialog(frame, settingsGUI, "Setlist Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (r == 0) {
-                    setlist.setLength(settingsView.getSetLength());
-                    System.out.println(settingsView.getSetLength());
-                    setlist.setBreakLength(settingsView.getBreakLength());
-                    setlist.setBreakCount(settingsView.getBreakAmount());
+                    setlist.setLength(settingsGUI.getSetLength());
+                    System.out.println(settingsGUI.getSetLength());
+                    setlist.setBreakLength(settingsGUI.getBreakLength());
+                    setlist.setBreakCount(settingsGUI.getBreakAmount());
                 }
             }
         });
@@ -168,7 +168,7 @@ public class MainView {
         });
         setlistButtons.addListElement(exportSetlist);
 
-        PageView setlistPage = new PageView(setlistScroll, setlistButtons);
+        PageGUI setlistPage = new PageGUI(setlistScroll, setlistButtons);
 
         //--------------------------------------------------------------------------
 

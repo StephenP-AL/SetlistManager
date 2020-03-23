@@ -1,14 +1,10 @@
 package setlist;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
 
-        MainView.createAndShowGUI();
+        MainGUI.createAndShowGUI();
 
 //        Catalog example = new Catalog();
 //        FileIO open = new FileIO();

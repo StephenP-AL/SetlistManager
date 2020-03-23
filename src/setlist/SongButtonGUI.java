@@ -6,11 +6,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SongButtonView extends JPanel {
+public class SongButtonGUI extends JPanel {
     protected JButton edit;
     protected JButton remove;
 
-    private void create(Song s, SongPropertiesView spv, Catalog c, ListView lv) {
+    private void create(Song s, SongPropertiesGUI spv, Catalog c, ListGUI lv) {
         ImageIcon editIcon = new ImageIcon("EditSong.png");
         Image editImg = editIcon.getImage().getScaledInstance(40,40, Image.SCALE_SMOOTH);
         editIcon = new ImageIcon(editImg);
@@ -18,13 +18,13 @@ public class SongButtonView extends JPanel {
 
         Border space = BorderFactory.createEmptyBorder(10,10,10,10);
 
-        SongView sv = new SongView(s);
+        SongGUI sv = new SongGUI(s);
 
         edit = new JButton("Edit");
         edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int r = JOptionPane.showConfirmDialog(SongButtonView.this, spv, "Edit Song", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, finalEditIcon);
+                int r = JOptionPane.showConfirmDialog(SongButtonGUI.this, spv, "Edit Song", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, finalEditIcon);
                 if (r == 0) {
                     s.setTitle(spv.getTitle());
                     s.setComposer(spv.getComposer());
@@ -52,13 +52,13 @@ public class SongButtonView extends JPanel {
         remove.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                lv.removeListElement(SongButtonView.this);
+                lv.removeListElement(SongButtonGUI.this);
                 c.remove(s);
             }
         });
         remove.setBorder(space);
 
-        ListView buttonPanel = new ListView(edit);
+        ListGUI buttonPanel = new ListGUI(edit);
         buttonPanel.addListElement(remove);
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -67,11 +67,11 @@ public class SongButtonView extends JPanel {
         add(buttonPanel);
     }
 
-    public SongButtonView() {
-        create(new Song(), new SongPropertiesView(), new Catalog(), new ListView());
+    public SongButtonGUI() {
+        create(new Song(), new SongPropertiesGUI(), new Catalog(), new ListGUI());
     }
 
-    public SongButtonView(Song s, SongPropertiesView spv, Catalog c, ListView lv) {
+    public SongButtonGUI(Song s, SongPropertiesGUI spv, Catalog c, ListGUI lv) {
         create(s, spv, c, lv);
     }
 }
