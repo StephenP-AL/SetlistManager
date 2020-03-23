@@ -144,7 +144,7 @@ public class MainGUI {
 
                 //randomCatalog.getList().printList();
                 //System.out.println(setlist.getLength());
-                
+
                 setlist.Populate(randomCatalog);
 
                 Song setlistSong;
@@ -177,7 +177,7 @@ public class MainGUI {
                 int r = fileChooser.showSaveDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
                     String filename = fileChooser.getSelectedFile().toString();
-                    fileIO.writeCatalog(c, filename);
+                    fileIO.writeCatalog(setlist, filename);
                 }
             }
         });
