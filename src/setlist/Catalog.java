@@ -19,6 +19,11 @@ public class Catalog {
      */
     public Song reviewSong(int index){
         // need some exception handling for outside of arraylist
+        //EXEPTION HANDLING IMPLEMENTED HERE
+        if (index >= SongList.size()) {
+            return null;
+        }
+        //------------------------------------
         while (SongList.get(index) == null ){
             index ++;
         }
@@ -29,6 +34,16 @@ public class Catalog {
             e.printStackTrace();
         }
         return ret;
+    }
+
+    public Song getSong(int index) {
+        if (index >= SongList.size()) {
+            return null;
+        }
+        while (SongList.get(index) == null ){
+            index ++;
+        }
+        return SongList.get(index);
     }
 
     /**
@@ -65,6 +80,16 @@ public class Catalog {
         Song retSong = SongList.get(index);
         SongList.set(index,null);
         return retSong;
+    }
+
+    public void remove(Song s) {
+        int i = 0;
+        while (i < SongList.size()) {
+            if (s.equals(SongList.get(i))) {
+                SongList.remove(i);
+            }
+            ++i;
+        }
     }
 
     /**

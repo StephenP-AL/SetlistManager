@@ -12,6 +12,10 @@ public class SongSelector {
     public SongSelector(CatalogView v){
         view = v;
         SongList = view.getList().reviewSongList();
+
+        //prev = new Song("t","c","H# Maj","G",1,5000,1,false);
+        //System.out.println("SongSelector created" + prev.toString());
+
     }
 
     /**

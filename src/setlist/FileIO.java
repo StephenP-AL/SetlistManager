@@ -1,8 +1,8 @@
 package setlist;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
+
+
+import java.io.*;
 import java.util.Scanner;
 
 public class FileIO {
@@ -41,30 +41,58 @@ public class FileIO {
             while (!line.equals("#gnos")) {
                 line = scanFile.nextLine();
                 if(line.startsWith("title:")){
-                    newSong.setTitle(line.substring(6));
+                    if (line.substring(6).equals("")) {
+                        newSong.setTitle(" ");
+                    } else {
+                        newSong.setTitle(line.substring(6));
+                    }
                 }
                 else if(line.startsWith("composer:")){
-                    newSong.setComposer(line.substring(9));
+                    if (line.substring(9).equals("")) {
+                        newSong.setComposer(" ");
+                    } else {
+                        newSong.setComposer(line.substring(9));
+                    }
                 }
                 else if(line.startsWith("key:")){
-                    newSong.setKey(line.substring(4));
+                    if (line.substring(4).equals("")) {
+                        newSong.setKey(" ");
+                    } else {
+                        newSong.setKey(line.substring(4));
+                    }
                 }
                 else if(line.startsWith("genre:")){
-                    newSong.setGenre(line.substring(6));
+                    if (line.substring(6).equals("")) {
+                        newSong.setGenre(" ");
+                    } else {
+                        newSong.setGenre(line.substring(6));
+                    }
                 }
                 else if (line.startsWith("length:")){
-                    newSong.setLength(Integer.parseInt(line.substring(7)));
+                    try {
+                        newSong.setLength(Integer.parseInt(line.substring(7)));
+                    } catch (NumberFormatException e) {
+                        newSong.setLength(0);
+                    }
                 }
                 else if (line.startsWith("tempo:")){
-                    newSong.setTempo(Integer.parseInt(line.substring(6)));
+                    try {
+                        newSong.setTempo(Integer.parseInt(line.substring(6)));
+                    } catch (NumberFormatException e) {
+                        newSong.setTempo(0);
+                    }
                 }
                 else if (line.startsWith("intro:")){
-                    newSong.setIntro(Integer.parseInt(line.substring(6)));
+                    try {
+                        newSong.setIntro(Integer.parseInt(line.substring(6)));
+                    } catch (NumberFormatException e) {
+                        newSong.setIntro(0);
+                    }
                 }
                 else if (line.equals("archive:0")){
                     newSong.setArchive(false);
                 }
-                else if (line.equals("arvhive:1")){
+                else if (line.equals("archive:1")){
                     newSong.setArchive(true);
                 }
                 else if (line.equals("gnos")){
@@ -74,7 +102,7 @@ public class FileIO {
             //System.out.println(newSong.toString());
             target.addSong(newSong);
         }
-        System.out.println("Something went wrong");
+        //System.out.println("Something went wrong");
     }
 
     /**
@@ -95,8 +123,8 @@ public class FileIO {
         }
         PrintWriter out = null;
         try {
-            out =  new PrintWriter(file);
-        } catch (FileNotFoundException e) {
+            out =  new PrintWriter(new FileWriter(file, false));
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -108,7 +136,7 @@ public class FileIO {
                 out.println("title:" + ((Song)i).getTitle());
             }
             if (out != null) {
-                out.println("Composer:" + ((Song)i).getComposer());
+                out.println("composer:" + ((Song)i).getComposer());
             }
             if (out != null) {
                 out.println("key:" + ((Song)i).getKey());
