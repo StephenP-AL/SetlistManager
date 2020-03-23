@@ -96,11 +96,13 @@ public class MainGUI {
                 JFileChooser fileChooser = new JFileChooser();
                 int r = fileChooser.showOpenDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
+                    Catalog fileCatalog = new Catalog();
                     String filename = fileChooser.getSelectedFile().toString();
-                    fileIO.openCatalog(filename, c);
+                    fileIO.openCatalog(filename, fileCatalog);
                     Song fileSong;
                     int i = 0;
-                    while ((fileSong = c.getSong(i)) != null) {
+                    while ((fileSong = fileCatalog.getSong(i)) != null) {
+                        c.addSong(fileSong);
                         catalogList.addListElement(new SongButtonGUI(fileSong, new SongPropertiesGUI(fileSong), c, catalogList));
                         ++i;
                     }
