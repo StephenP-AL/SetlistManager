@@ -10,8 +10,15 @@ public class SongSelector {
     private ArrayList<Song> SongList;
     private boolean toggle; //
     public SongSelector(CatalogView v){
+        //System.out.println("SONGSELECTOR");
         view = v;
         SongList = view.getList().reviewSongList();
+        /*for (Song i:SongList){
+            if (i == null){
+                continue;
+            }
+            System.out.println(i.toString());
+        }*/
 
         //prev = new Song("t","c","H# Maj","G",1,5000,1,false);
         //System.out.println("SongSelector created" + prev.toString());

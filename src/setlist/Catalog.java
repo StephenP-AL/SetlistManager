@@ -102,12 +102,11 @@ public class Catalog {
         }
         return dup;
     }
-    public ArrayList reviewSongList(){
-        ArrayList dup = new ArrayList();
-        for (Song i:SongList) {
-            dup.add(i);
-        }
-        return dup;
+    public ArrayList<Song> reviewSongList(){
+        return new ArrayList<>(SongList);
+    }
 
+    public void clear() {
+        SongList.clear();
     }
 }

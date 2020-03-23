@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 public class MainGUI {
     public static void createAndShowGUI() {
         Catalog c = new Catalog();
+        RandomView randomCatalog = new RandomView();
         Setlist setlist = new Setlist(3600, 1, 600);
         FileIO fileIO = new FileIO();
 
@@ -132,10 +133,18 @@ public class MainGUI {
         generate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                setlist.clear();
                 setlistList.clear();
+                setlistScroll.repaint();
+                setlistScroll.revalidate();
+                tabbedPane.repaint();
+                tabbedPane.revalidate();
 
-                RandomView randomCatalog = new RandomView();
                 randomCatalog.Sort(c);
+
+                //randomCatalog.getList().printList();
+                //System.out.println(setlist.getLength());
+                
                 setlist.Populate(randomCatalog);
 
                 Song setlistSong;
