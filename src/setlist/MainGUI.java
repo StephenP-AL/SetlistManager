@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 public class MainGUI {
     public static void createAndShowGUI() {
         Catalog c = new Catalog();
+        Setlist setlist = new Setlist(3600, 1, 600);
         FileIO fileIO = new FileIO();
 
         JFrame frame = new JFrame("Setlist Manager");
@@ -131,16 +132,21 @@ public class MainGUI {
         generate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Song cSong;
+                setlistList.clear();
+
+                RandomView randomCatalog = new RandomView();
+                randomCatalog.Sort(c);
+                setlist.Populate(randomCatalog);
+
+                Song setlistSong;
                 int i = 0;
-                while ((cSong = c.getSong(i)) != null) {
-                    setlistList.addListElement(new SongGUI(cSong));
+                while ((setlistSong = setlist.getSong(i)) != null) {
+                    setlistList.addListElement(new SongGUI(setlistSong));
                     ++i;
                 }
             }
         });
         setlistButtons.addListElement(generate);
-        Setlist setlist = new Setlist(1, 1, 1);
         SettingsGUI settingsGUI = new SettingsGUI(setlist);
         settings.addActionListener(new ActionListener() {
             @Override
@@ -148,7 +154,7 @@ public class MainGUI {
                 int r = JOptionPane.showConfirmDialog(frame, settingsGUI, "Setlist Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (r == 0) {
                     setlist.setLength(settingsGUI.getSetLength());
-                    System.out.println(settingsGUI.getSetLength());
+                    //System.out.println(settingsGUI.getSetLength());
                     setlist.setBreakLength(settingsGUI.getBreakLength());
                     setlist.setBreakCount(settingsGUI.getBreakAmount());
                 }

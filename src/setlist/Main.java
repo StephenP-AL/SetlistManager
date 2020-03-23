@@ -9,23 +9,23 @@ public class Main {
 
 //         Catalog example = new Catalog();
 //         FileIO open = new FileIO();
-//         open.openCatalog("D:\\Code\\IdeaProjects\\SetlistManager\\Example.setlist",example);
+//         open.openCatalog("Example.setlist",example);
 //         /*for (Object i:example.reviewSongList()){
 //             System.out.println(i.toString());
 //         }
 //         System.out.println(example.reviewSongList().size());
 //         TitleView sortedExampleA = new TitleView();
 //         sortedExampleA.Sort(example);*/
-
+//
 //         RandomView random = new RandomView();
 //         random.Sort(example);
 //         //for (Object i:random.getList().reviewSongList()){
 //             //System.out.println(i.toString());
 //         //}
-
+//
 //         System.out.println();
 //         System.out.println("Testing Setlist");
-
+//
 //         Setlist set = new Setlist(2000,2,60);
 //         set.Populate(random);
 //         set.printList();

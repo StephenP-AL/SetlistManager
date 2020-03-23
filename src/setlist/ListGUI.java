@@ -35,4 +35,13 @@ public class ListGUI extends JPanel {
         repaint();
         revalidate();
     }
+
+    public void clear() {
+        Component[] cList = this.getComponents();
+        for (Component component : cList) {
+            this.remove(component);
+        }
+        repaint();
+        revalidate();
+    }
 }

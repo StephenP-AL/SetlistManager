@@ -119,7 +119,7 @@ public class Setlist extends Catalog {
             for (int i = 0; i < BreakCount; i++){
                 if (!breakState[i] && (LengthCurrent() > (playSegment * (i + 1) - (BreakLength / 2)))){
                     System.out.println(LengthCurrent() + " | " + (playSegment * (i + 1)));
-                    addSong(Break(5));
+                    addSong(Break(BreakLength));
                     breakState[i] = true;
                 }
             }
@@ -145,7 +145,7 @@ public class Setlist extends Catalog {
      */
 
     private Song Break(int time){
-        return new Song("Intermission","","","", time,-1,1,false);
+        return new Song("Intermission","","","", time,-1,-1,false);
 
     }
 
