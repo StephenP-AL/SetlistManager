@@ -8,34 +8,35 @@ import static java.lang.Boolean.TRUE;
 public class SongSelector {
     private CatalogView view;
     private ArrayList<Song> SongList;
-    private Song prev; // Initially set to
+    private boolean toggle; //
     public SongSelector(CatalogView v){
         view = v;
         SongList = view.getList().reviewSongList();
-        prev = new Song("t","c","H# Maj","G",1,5000,1,false);
-        System.out.println("SongSelector created" + prev.toString());
+
+        //prev = new Song("t","c","H# Maj","G",1,5000,1,false);
+        //System.out.println("SongSelector created" + prev.toString());
+
     }
 
     /**
      * Selects the next appropriate Song for a Setlist
-     * @param index Index of the ArrayList where the Song will be added. This is used to determine if key or tempo will be compared to the previous Song
      * @return Returns a Song if an appropriate one is found, or null if no appropriate Songs exist.
      */
-    public Song nextSong(int index){
+    public Song nextSong(Song prev, int index){
         for (int i = 0; i < SongList.size(); i++ ){
             if (SongList.get(i) == null){
-                System.out.println(1);
+                //System.out.println(1);
                 continue;
             }
-            if (index % 2 == 1){
+            if (index % 2 == 0){
                 //System.out.println("odd");
                 if (SongList.get(i).getKey().equals(prev.getKey())){
-                    continue;
+                    System.out.println(SongList.get(i).getTitle() + " rejected: same key");
                 }
                 else{
-                    prev = SongList.get(i);
+                    Song ret = SongList.get(i);
                     SongList.remove(i);
-                    return prev;
+                    return ret;
                 }
             }
             else{
@@ -50,12 +51,12 @@ public class SongSelector {
                 double ratio = difference / (double) prev.getTempo();
                 //System.out.println(ratio);
                 if ( ratio > 0.1){
-                    prev = SongList.get(i);
+                    Song ret = SongList.get(i);
                     SongList.remove(i);
-                    return prev;
+                    return ret;
                 }
                 else {
-                    continue;
+                    System.out.println(SongList.get(i).getTitle() + " rejected: same tempo");
                 }
             }
         }
