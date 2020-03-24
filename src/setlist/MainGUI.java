@@ -49,7 +49,7 @@ public class MainGUI {
         exportSetlist.setBorder(buttonBorder);
 
         ListGUI catalogList = new ListGUI();
-        JScrollPane catalogScroll = new JScrollPane(catalogList, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane catalogScroll = new JScrollPane(catalogList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         catalogScroll.setBorder(space);
 
         ListGUI catalogButtons = new ListGUI();
@@ -127,7 +127,7 @@ public class MainGUI {
         //------------------------------------------------------------------------
 
         ListGUI setlistList = new ListGUI();
-        JScrollPane setlistScroll = new JScrollPane(setlistList, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane setlistScroll = new JScrollPane(setlistList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         setlistScroll.setBorder(space);
 
         ListGUI setlistButtons = new ListGUI();

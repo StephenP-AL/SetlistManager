@@ -109,11 +109,11 @@ public class Setlist extends Catalog {
         int index = 0;
 
         // Variables for dealing with breaks
-        boolean[] breakState = new boolean[BreakCount];
+        boolean[] breakState = new boolean[BreakCount]; //Array of flags to show if a scheduled break is has been added to the setlist
         for (int i = 0; i < BreakCount; i++){
             breakState[i] = false;
         }
-        int playSegment = Length / (BreakCount + 1);
+        int playSegment = Length / (BreakCount + 1); //Time between intermissions
 
         while (LengthCurrent() < Length){
             for (int i = 0; i < BreakCount; i++){
@@ -127,7 +127,7 @@ public class Setlist extends Catalog {
             if (next != null) {
                 addSong(next);
                 prev = next;
-                System.out.println(next.getTitle() + LengthCurrent());
+                System.out.println("SETLIST.POPULATE added: " + next.getTitle() + " Total set length: " + LengthCurrent());
                 index++;
             }
             else{

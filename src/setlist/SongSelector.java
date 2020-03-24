@@ -8,20 +8,9 @@ import static java.lang.Boolean.TRUE;
 public class SongSelector {
     private CatalogView view;
     private ArrayList<Song> SongList;
-    private boolean toggle; //
     public SongSelector(CatalogView v){
-        //System.out.println("SONGSELECTOR");
         view = v;
         SongList = view.getList().reviewSongList();
-        /*for (Song i:SongList){
-            if (i == null){
-                continue;
-            }
-            System.out.println(i.toString());
-        }*/
-
-        //prev = new Song("t","c","H# Maj","G",1,5000,1,false);
-        //System.out.println("SongSelector created" + prev.toString());
 
     }
 
@@ -32,13 +21,11 @@ public class SongSelector {
     public Song nextSong(Song prev, int index){
         for (int i = 0; i < SongList.size(); i++ ){
             if (SongList.get(i) == null){
-                //System.out.println(1);
                 continue;
             }
             if (index % 2 == 0){
-                //System.out.println("odd");
                 if (SongList.get(i).getKey().equals(prev.getKey())){
-                    System.out.println(SongList.get(i).getTitle() + " rejected: same key");
+                    System.out.println("SONG SELECTOR rejected: '" + SongList.get(i).getTitle() + "', same key");
                 }
                 else{
                     Song ret = SongList.get(i);
@@ -47,7 +34,6 @@ public class SongSelector {
                 }
             }
             else{
-                //System.out.println("even");
                 double difference;
                 if (prev.getTempo() > SongList.get(i).getTempo()){
                     difference = prev.getTempo() - SongList.get(i).getTempo();
@@ -56,14 +42,13 @@ public class SongSelector {
                     difference = SongList.get(i).getTempo() - prev.getTempo();
                 }
                 double ratio = difference / (double) prev.getTempo();
-                //System.out.println(ratio);
                 if ( ratio > 0.1){
                     Song ret = SongList.get(i);
                     SongList.remove(i);
                     return ret;
                 }
                 else {
-                    System.out.println(SongList.get(i).getTitle() + " rejected: same tempo");
+                    System.out.println("SONG SELECTOR rejected: '" + SongList.get(i).getTitle() + "', same tempo");
                 }
             }
         }
