@@ -84,7 +84,18 @@ public class Setlist extends Catalog {
      * @param input String of genres delimited by space or comma
      */
     public void setGenreRestrict(String input){
-        //stub Parses string of delimited genres and ads them to arraylist
+
+        String splitArray[];            // Create simple array to store split string
+        String delimiter = ", ";        // Create delimiter to separate genres
+
+        splitArray = input.split(delimiter);    // Split input string into simple array format
+
+        // Loop to add all of splitArray elements into GenreRestrict ArrayList
+        int size = splitArray.length;
+        for(int i = 0; i < size; i++)
+        {
+            GenreRestrict.add(splitArray[i]);
+        }
     }
 
 
