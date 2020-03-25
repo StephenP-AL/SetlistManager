@@ -24,6 +24,7 @@ public class SongButtonGUI extends JPanel {
         edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                spv.changeSong(s);
                 int r = JOptionPane.showConfirmDialog(SongButtonGUI.this, spv, "Edit Song", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, finalEditIcon);
                 if (r == 0) {
                     s.setTitle(spv.getTitle());

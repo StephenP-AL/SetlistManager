@@ -15,6 +15,7 @@ public class Setlist extends Catalog {
         Length = l;
         BreakCount = bc;
         BreakLength = bl;
+        GenreRestrict = new ArrayList<>();
     }
 
     /**
@@ -84,6 +85,7 @@ public class Setlist extends Catalog {
      * @param input String of genres delimited by space or comma
      */
     public void setGenreRestrict(String input){
+        GenreRestrict.clear();
 
         String splitArray[];            // Create simple array to store split string
         String delimiter = ", ";        // Create delimiter to separate genres
@@ -96,6 +98,10 @@ public class Setlist extends Catalog {
         {
             GenreRestrict.add(splitArray[i]);
         }
+    }
+
+    public ArrayList<String> getGenreRestrict() {
+        return GenreRestrict;
     }
 
 
