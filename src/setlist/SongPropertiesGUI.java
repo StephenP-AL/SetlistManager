@@ -174,6 +174,10 @@ public class SongPropertiesGUI extends JPanel {
         return n;
     }
 
+    public String getLengthText() {
+        return lengthTextField.getText();
+    }
+
     public int getTempo() {
         int n;
         try {
@@ -185,6 +189,10 @@ public class SongPropertiesGUI extends JPanel {
         return n;
     }
 
+    public String getTempoText() {
+        return tempoTextField.getText();
+    }
+
     public int getIntro() {
         int n;
         try {
@@ -194,6 +202,10 @@ public class SongPropertiesGUI extends JPanel {
             n = 0;
         }
         return n;
+    }
+
+    public String getIntroText() {
+        return introTextField.getText();
     }
 
     public boolean getArchive() {

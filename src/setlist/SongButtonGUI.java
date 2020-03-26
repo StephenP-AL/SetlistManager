@@ -27,13 +27,40 @@ public class SongButtonGUI extends JPanel {
                 spv.changeSong(s);
                 int r = JOptionPane.showConfirmDialog(SongButtonGUI.this, spv, "Edit Song", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, finalEditIcon);
                 if (r == 0) {
+                    boolean length = true;
+                    boolean tempo = true;
+                    boolean intro = true;
+                    try {
+                        Integer.parseInt(spv.getLengthText());
+                    } catch (NumberFormatException e1) {
+                        length = false;
+                        JOptionPane.showMessageDialog(SongButtonGUI.this,"Length may have been entered incorrectly", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    try {
+                        Integer.parseInt(spv.getTempoText());
+                    } catch (NumberFormatException e1) {
+                        tempo = false;
+                        JOptionPane.showMessageDialog(SongButtonGUI.this,"Tempo may have been entered incorrectly", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    try {
+                        Integer.parseInt(spv.getIntroText());
+                    } catch (NumberFormatException e1) {
+                        intro = false;
+                        JOptionPane.showMessageDialog(SongButtonGUI.this,"Intro may have been entered incorrectly", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                     s.setTitle(spv.getTitle());
                     s.setComposer(spv.getComposer());
                     s.setKey(spv.getKey());
                     s.setGenre(spv.getGenre());
-                    s.setLength(spv.getLength());
-                    s.setTempo(spv.getTempo());
-                    s.setIntro(spv.getIntro());
+                    if (length) {
+                        s.setLength(spv.getLength());
+                    }
+                    if (tempo) {
+                        s.setTempo(spv.getTempo());
+                    }
+                    if (intro) {
+                        s.setIntro(spv.getIntro());
+                    }
                     s.setArchive(spv.getArchive());
                     spv.changeSong(s);
                     sv.changeSong(s);

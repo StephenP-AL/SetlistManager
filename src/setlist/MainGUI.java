@@ -59,7 +59,8 @@ public class MainGUI {
         addSong.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addSongView.changeSong(new Song());
+                Song songToAdd = new Song();
+                addSongView.changeSong(songToAdd);
                 int r = JOptionPane.showConfirmDialog(frame, addSongView, "Add Song", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, finalAddIcon);
                 if (r == 0) {
                     String p1 = addSongView.getTitle();
@@ -82,7 +83,30 @@ public class MainGUI {
                     if (p4.equals("")) {
                         p4 = " ";
                     }
-                    Song songToAdd = new Song(p1, p2, p3, p4, p5, p6, p7, p8);
+                    try {
+                        Integer.parseInt(addSongView.getLengthText());
+                    } catch (NumberFormatException e1) {
+                        p5 = 0;
+                    }
+                    try {
+                        Integer.parseInt(addSongView.getTempoText());
+                    } catch (NumberFormatException e1) {
+                        p6 = 0;
+                    }
+                    try {
+                        Integer.parseInt(addSongView.getIntroText());
+                    } catch (NumberFormatException e1) {
+                        p7 = 0;
+                    }
+                    addSongView.changeSong(new Song(addSongView.getTitle(), addSongView.getComposer(), addSongView.getKey(), addSongView.getGenre(), p5, p6, p7, p8));
+                    songToAdd.setTitle(p1);
+                    songToAdd.setComposer(p2);
+                    songToAdd.setKey(p3);
+                    songToAdd.setGenre(p4);
+                    songToAdd.setLength(p5);
+                    songToAdd.setTempo(p6);
+                    songToAdd.setIntro(p7);
+                    songToAdd.setArchive(p8);
                     c.addSong(songToAdd);
                     SongPropertiesGUI elementView = new SongPropertiesGUI(addSongView);
                     catalogList.addListElement(new SongButtonGUI(songToAdd, elementView, c, catalogList));
