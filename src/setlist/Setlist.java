@@ -122,29 +122,40 @@ public class Setlist extends Catalog {
         }
         int playSegment = Length / (BreakCount + 1); //Time between intermissions
 
-        while (LengthCurrent() < Length){
-            for (int i = 0; i < BreakCount; i++){
-                if (!breakState[i] && (LengthCurrent() > (playSegment * (i + 1) - (BreakLength / 2)))){
+        while (LengthCurrent() < Length) {
+            for (int i = 0; i < BreakCount; i++) {
+                if (!breakState[i] && (LengthCurrent() > (playSegment * (i + 1) - (BreakLength / 2)))) {
                     System.out.println(LengthCurrent() + " | " + (playSegment * (i + 1)));
                     addSong(Break(BreakLength));
                     breakState[i] = true;
                 }
             }
-            Song next =  (select.nextSong(prev,index));
-            if (next != null) {
-                addSong(next);
-                prev = next;
-                System.out.println("SETLIST.POPULATE added: " + next.getTitle() + " Total set length: " + LengthCurrent());
-                index++;
-            }
-            else{
-                System.out.println("SongSelector did not return a suitable Song.");
+            Song next = (select.nextSong(prev, index));
+            if (next == null) {
+                System.out.println("SongSelector did not return a Song");
                 break;
+            } else {
+                if (GenreRestrict.isEmpty() || GenreRestrict.get(0).isBlank()) {
+                    addSong(next);
+                    prev = next;
+                    System.out.println("SETLIST.POPULATE added: " + next.getTitle() + " Total set length: " + LengthCurrent());
+                    index++;
+                } else {
+                    for (String genre : GenreRestrict) {
+                        if (next.getGenre().toUpperCase().equals(genre.toUpperCase())) {
+                            addSong(next);
+                            prev = next;
+                            System.out.println("SETLIST.POPULATE added: " + next.getTitle() + " Genre matched: " + genre + "Total set length: " + LengthCurrent());
+                            index++;
+                            break;
+                        } else {
+                            System.out.println("SETLIST.POPULATE rejected: " + next.getTitle() + ", wrong genre: " + next.getGenre() + " | " + genre);
+                        }
+                    }
+                }
             }
         }
-
     }
-
 
     /**
      * Creates a break/intermission in the format of a Song

@@ -16,7 +16,7 @@ public class SettingsGUI extends JPanel {
         JLabel setLengthLabel = new JLabel("Set Length:");
         JLabel breakLengthLabel = new JLabel("Break Length:");
         JLabel breakAmountLabel = new JLabel("Number of Breaks:");
-        JLabel genreRestrictLabel = new JLabel("Genre(s) to exclude (separate with commas):");
+        JLabel genreRestrictLabel = new JLabel("Genre(s) (separate with commas):");
 
         setLengthTextField.setText(String.valueOf(s.getLength()));
         breakLengthTextField.setText(String.valueOf(s.getBreakLength()));
