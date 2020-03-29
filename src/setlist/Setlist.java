@@ -105,16 +105,6 @@ public class Setlist extends Catalog {
     }
 
 
-    /**
-     * @param index index of next song to be added
-     * @param previous The previous song added to the Setlist
-     * @return The song selected from the specificed catalog
-     */
-    private Song SelectNextSong(Song previous, int index){
-        //stub: selects first appropriate song from catalog then sets it to null in the source catalog
-        return null;
-    }
-
 
     /**
      * @param source Catalog view from which songs are selected
