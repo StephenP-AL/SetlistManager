@@ -88,7 +88,7 @@ public class Setlist extends Catalog {
         GenreRestrict.clear();
 
         String splitArray[];            // Create simple array to store split string
-        String delimiter = ", ";        // Create delimiter to separate genres
+        String delimiter = ",";        // Create delimiter to separate genres
 
         splitArray = input.split(delimiter);    // Split input string into simple array format
 
