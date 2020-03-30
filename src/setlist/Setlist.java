@@ -11,10 +11,10 @@ public class Setlist extends Catalog {
     private ArrayList<String> GenreRestrict;
 
 
-    public Setlist(int l, int bc, int bl){
-        Length = l;
-        BreakCount = bc;
-        BreakLength = bl;
+    public Setlist(int length, int breakCount, int breakLength){
+        Length = length;
+        BreakCount = breakCount;
+        BreakLength = breakLength;
         GenreRestrict = new ArrayList<>();
     }
 
@@ -142,7 +142,7 @@ public class Setlist extends Catalog {
                     index++;
                 } else {
                     for (String genre : GenreRestrict) {
-                        if (next.getGenre().toUpperCase().equals(genre.toUpperCase())) {
+                        if (next.getGenre().toUpperCase().replaceAll("\\s","").equals(genre.toUpperCase().replaceAll("\\s","")) ){
                             addSong(next);
                             prev = next;
                             System.out.println("SETLIST.POPULATE added: " + next.getTitle() + " Genre matched: " + genre + "Total set length: " + LengthCurrent());

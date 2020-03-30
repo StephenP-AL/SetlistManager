@@ -169,7 +169,6 @@ public class MainGUI {
                 randomCatalog.Sort(c);
 
                 setlist.Populate(randomCatalog);
-
                 Song setlistSong;
                 int i = 0;
                 while ((setlistSong = setlist.getSong(i)) != null) {
