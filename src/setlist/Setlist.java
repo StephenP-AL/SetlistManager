@@ -110,7 +110,7 @@ public class Setlist extends Catalog {
      * @param source Catalog view from which songs are selected
      */
 
-    public void Populate(CatalogView source){
+    public int Populate(CatalogView source){
         SongSelector select = new SongSelector(source);
         Song prev = new Song("a","b","c","g",1,1,1,false);
         int index = 0;
@@ -133,7 +133,7 @@ public class Setlist extends Catalog {
             Song next = (select.nextSong(prev, index));
             if (next == null) {
                 System.out.println("SongSelector did not return a Song");
-                break;
+                return 1;
             } else {
                 if (GenreRestrict.isEmpty() || GenreRestrict.get(0).isBlank()) {
                     addSong(next);
@@ -155,6 +155,7 @@ public class Setlist extends Catalog {
                 }
             }
         }
+        return 0;
     }
 
     /**

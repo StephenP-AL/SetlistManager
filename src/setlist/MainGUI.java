@@ -168,12 +168,16 @@ public class MainGUI {
 
                 randomCatalog.Sort(c);
 
-                setlist.Populate(randomCatalog);
+                int retValue = setlist.Populate(randomCatalog);
                 Song setlistSong;
                 int i = 0;
                 while ((setlistSong = setlist.getSong(i)) != null) {
                     setlistList.addListElement(new SongGUI(setlistSong));
                     ++i;
+                }
+                if (retValue == 1){
+                    String error = "Failed to generate a complete setlist.\nIf this problem persists, try adjusting your settings or adding more songs to your catalog.";
+                    JOptionPane.showMessageDialog(new JFrame(), error, "Incomplete Setlist", JOptionPane.ERROR_MESSAGE );
                 }
             }
         });
