@@ -128,6 +128,9 @@ public class MainGUI {
                     Catalog fileCatalog = new Catalog();
                     String filename = fileChooser.getSelectedFile().toString();
                     fileIO.openCatalog(filename, fileCatalog);
+                    TitleView sortTitle = new TitleView();
+                    sortTitle.Sort(fileCatalog);
+                    fileCatalog = sortTitle.getList();
                     Song fileSong;
                     int i = 0;
                     while ((fileSong = fileCatalog.getSong(i)) != null) {
