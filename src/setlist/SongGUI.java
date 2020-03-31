@@ -2,6 +2,7 @@ package setlist;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.*;
 
 public class SongGUI extends JPanel {
 
@@ -36,6 +37,9 @@ public class SongGUI extends JPanel {
         if (genre.equals("")) {
             genre = " ";
         }
+        Dimension preferred = new Dimension(1000,250);
+        //setPreferredSize(preferred);
+        this.setMinimumSize(preferred);
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 

@@ -17,10 +17,12 @@ public class ListGUI extends JPanel {
     public ListGUI(Component c){
         create();
         add(c);
+        ((JComponent)c).setAlignmentX(LEFT_ALIGNMENT);
     }
 
     public void addListElement(Component c) {
         add(c);
+        ((JComponent)c).setAlignmentX(LEFT_ALIGNMENT);
         repaint();
         revalidate();
     }
