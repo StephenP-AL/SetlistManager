@@ -2,9 +2,11 @@ package setlist;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileFilter;
 
 public class MainGUI {
     public static void createAndShowGUI() {
@@ -119,6 +121,8 @@ public class MainGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
+                FileNameExtensionFilter setlistFileExtension = new FileNameExtensionFilter("setlist","SETLIST");
+                fileChooser.setFileFilter(setlistFileExtension);
                 int r = fileChooser.showOpenDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
                     Catalog fileCatalog = new Catalog();
