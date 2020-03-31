@@ -14,7 +14,7 @@ public class ListGUI extends JPanel {
         create();
     }
 
-    public ListGUI(Component c){
+    public ListGUI(Component c){ // Can we safely change this to JComponent?
         create();
         add(c);
         ((JComponent)c).setAlignmentX(LEFT_ALIGNMENT);

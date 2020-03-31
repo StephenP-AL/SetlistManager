@@ -22,7 +22,7 @@ public class SongGUI extends JPanel {
     private JLabel lengthDataLabel;
     private JLabel tempoDataLabel;
     private JLabel introDataLabel;
-    private JLabel archiveDataLabel;
+    private JCheckBox archiveDataLabel;
 
     private void create() {
         if (title.equals("")) {
@@ -37,11 +37,8 @@ public class SongGUI extends JPanel {
         if (genre.equals("")) {
             genre = " ";
         }
-        Dimension preferred = new Dimension(1000,250);
-        //setPreferredSize(preferred);
-        this.setMinimumSize(preferred);
-
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        Font Large = new Font("Serif", Font.PLAIN, 25);
 
         JPanel labels = new JPanel();
         BoxLayout labelsLayout = new BoxLayout(labels, BoxLayout.Y_AXIS);
@@ -55,6 +52,7 @@ public class SongGUI extends JPanel {
 
         JLabel titleLabel = new JLabel("Title: ");
         titleLabel.setBorder(labelBorder);
+        titleLabel.setFont(Large);
         JLabel composerLabel = new JLabel("Composer: ");
         composerLabel.setBorder(labelBorder);
         JLabel keyLabel = new JLabel("Key: ");
@@ -72,6 +70,7 @@ public class SongGUI extends JPanel {
 
         titleDataLabel = new JLabel(title);
         titleDataLabel.setBorder(labelBorder);
+        titleDataLabel.setFont(Large);
         composerDataLabel = new JLabel(composer);
         composerDataLabel.setBorder(labelBorder);
         keyDataLabel = new JLabel(key);
@@ -84,7 +83,8 @@ public class SongGUI extends JPanel {
         tempoDataLabel.setBorder(labelBorder);
         introDataLabel = new JLabel(String.valueOf(intro));
         introDataLabel.setBorder(labelBorder);
-        archiveDataLabel = new JLabel(String.valueOf(archive));
+        archiveDataLabel = new JCheckBox("",archive);
+        archiveDataLabel.setEnabled(false);
         archiveDataLabel.setBorder(labelBorder);
 
         labels.add(titleLabel);
@@ -177,7 +177,7 @@ public class SongGUI extends JPanel {
         lengthDataLabel.setText(String.valueOf(length));
         tempoDataLabel.setText(String.valueOf(tempo));
         introDataLabel.setText(String.valueOf(intro));
-        archiveDataLabel.setText(String.valueOf(archive));
+        archiveDataLabel.setSelected(archive);
     }
 
     public String getTitle() {

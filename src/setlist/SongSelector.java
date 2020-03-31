@@ -23,6 +23,9 @@ public class SongSelector {
             if (SongList.get(i) == null){
                 continue;
             }
+            if (SongList.get(i).isArchive()){
+                SongList.remove(i);
+            }
             if (index % 2 == 0){
                 if (SongList.get(i).getKey().equals(prev.getKey())){
                     System.out.println("SONG SELECTOR rejected: '" + SongList.get(i).getTitle() + "', same key");
