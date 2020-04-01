@@ -53,6 +53,7 @@ public class SongGUI extends JPanel {
         JLabel titleLabel = new JLabel("Title: ");
         titleLabel.setBorder(labelBorder);
         titleLabel.setFont(Large);
+        //titleLabel.setMaximumSize(new Dimension(100,55));
         JLabel composerLabel = new JLabel("Composer: ");
         composerLabel.setBorder(labelBorder);
         JLabel keyLabel = new JLabel("Key: ");
@@ -71,7 +72,7 @@ public class SongGUI extends JPanel {
         titleDataLabel = new JLabel(title);
         titleDataLabel.setBorder(labelBorder);
         titleDataLabel.setFont(Large);
-        titleDataLabel.setMaximumSize(new Dimension(500,16)); // I have no idea why this works, but it does
+        titleDataLabel.setMaximumSize(new Dimension(500,55)); // I have no idea why this works, but it does
         composerDataLabel = new JLabel(composer);
         composerDataLabel.setBorder(labelBorder);
         keyDataLabel = new JLabel(key);
