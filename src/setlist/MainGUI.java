@@ -157,7 +157,10 @@ public class MainGUI {
                 JFileChooser fileChooser = new JFileChooser();
                 int r = fileChooser.showSaveDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
-                    String filename = fileChooser.getSelectedFile().toString() + ".setlist";
+                    String filename = fileChooser.getSelectedFile().toString();
+                    if(!filename.endsWith(".setlist")){
+                        filename = filename + ".setlist";
+                    }
                     fileIO.writeCatalog(c, filename);
                 }
             }
