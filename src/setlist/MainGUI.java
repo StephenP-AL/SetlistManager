@@ -222,7 +222,7 @@ public class MainGUI {
                 int r = fileChooser.showSaveDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
                     String filename = fileChooser.getSelectedFile().toString();
-                    fileIO.writeCatalog(setlist, filename);
+                    fileIO.exportTXT(setlist, filename);
                 }
             }
         });

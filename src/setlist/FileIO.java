@@ -177,4 +177,46 @@ public class FileIO {
             out.close();
         }
     }
+
+    public void exportPDF (Setlist source){
+        //stub
+    }
+
+    public void exportTXT(Setlist source, String file){
+
+        PrintWriter out = null;
+        try {
+            out =  new PrintWriter(new FileWriter(file, false));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (out != null) {
+                out.println("Setlist     Total length: " + source.getLengthHour() + ":" + source.getLengthMinute() + ":" + source.getLengthSecond());
+                out.println(source.getBreakCount() + " Breaks, " + source.getBreakLength() + " seconds each");
+                out.printf("Genres: ");
+                if (source.getGenreRestrict().isEmpty()){
+                    out.printf(" All");
+                }
+                else {
+                    for (String i : source.getGenreRestrict()) {
+                        out.printf(i + "    ");
+                    }
+                }
+                out.println("\n");
+                for(Object i:source.reviewSongList()) {
+                    if(((Song)i).getTempo() == -1){
+                        out.println("\n   INTERMISSION             Length: " + ((Song) i).getLengthMin() + ":" + (((Song) i).getLengthSec()) );
+                    }
+                    else {
+                        out.println("\n   " + ((Song) i).getTitle());
+                        out.println("   By: " + ((Song) i).getComposer());
+                        out.println("   Key:    " + ((Song) i).getKey() + "          Genre:" + ((Song) i).getGenre());
+                        out.println("   Length: " + ((Song) i).getLengthMin() + ":" + (((Song) i).getLengthSec()) + "    Tempo:" + ((Song) i).getTempo() + "    Intro:" + ((Song) i).getIntro());
+                    }
+                }
+                out.close();
+            }
+    }
+
+
 }
