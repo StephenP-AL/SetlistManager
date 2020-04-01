@@ -79,7 +79,7 @@ public class SongGUI extends JPanel {
         keyDataLabel.setBorder(labelBorder);
         genreDataLabel = new JLabel(genre);
         genreDataLabel.setBorder(labelBorder);
-        lengthDataLabel = new JLabel(String.valueOf(length));
+        lengthDataLabel = new JLabel(String.valueOf(length / 60) + ":" + String.valueOf(length % 60));
         lengthDataLabel.setBorder(labelBorder);
         tempoDataLabel = new JLabel(String.valueOf(tempo));
         tempoDataLabel.setBorder(labelBorder);
