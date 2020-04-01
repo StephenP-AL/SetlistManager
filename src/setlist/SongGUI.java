@@ -53,7 +53,7 @@ public class SongGUI extends JPanel {
         JLabel titleLabel = new JLabel("Title: ");
         titleLabel.setBorder(labelBorder);
         titleLabel.setFont(Large);
-        //titleLabel.setMaximumSize(new Dimension(100,55));
+        titleLabel.setMaximumSize(new Dimension(100,55));
         JLabel composerLabel = new JLabel("Composer: ");
         composerLabel.setBorder(labelBorder);
         JLabel keyLabel = new JLabel("Key: ");
