@@ -14,6 +14,8 @@ public class MainGUI {
         RandomView randomCatalog = new RandomView();
         Setlist setlist = new Setlist(3600, 1, 600);
         FileIO fileIO = new FileIO();
+        Dimension buttonSize = new Dimension(190,50);
+
 
         JFrame frame = new JFrame("Setlist Manager");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,16 +41,22 @@ public class MainGUI {
         //Buttons!!!
         JButton addSong = new JButton("Add Song");
         addSong.setBorder(buttonBorder);
+        addSong.setMaximumSize(buttonSize);
         JButton addFromFile = new JButton("Add Song(s) from File");
         addFromFile.setBorder(buttonBorder);
+        addFromFile.setMaximumSize(buttonSize);
         JButton exportCatalog = new JButton("Export Catalog");
         exportCatalog.setBorder(buttonBorder);
+        exportCatalog.setMaximumSize(buttonSize);
         JButton generate = new JButton("Generate Setlist");
         generate.setBorder(buttonBorder);
+        generate.setMaximumSize(buttonSize);
         JButton settings = new JButton("Setlist Settings");
         settings.setBorder(buttonBorder);
+        settings.setMaximumSize(buttonSize);
         JButton exportSetlist = new JButton("Export Setlist");
         exportSetlist.setBorder(buttonBorder);
+        exportSetlist.setMaximumSize(buttonSize);
 
         ListGUI catalogList = new ListGUI();
         JScrollPane catalogScroll = new JScrollPane(catalogList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);

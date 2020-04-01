@@ -20,6 +20,7 @@ public class SongButtonGUI extends JPanel {
 
         SongGUI sv = new SongGUI(s);
 
+        Dimension buttonSize = new Dimension(175,33);
         edit = new JButton("Edit");
         edit.addActionListener(new ActionListener() {
             @Override
@@ -76,6 +77,7 @@ public class SongButtonGUI extends JPanel {
             }
         });
         edit.setBorder(space);
+        edit.setMaximumSize(buttonSize);
         remove = new JButton("Remove");
         remove.addActionListener(new ActionListener() {
             @Override
@@ -85,6 +87,7 @@ public class SongButtonGUI extends JPanel {
             }
         });
         remove.setBorder(space);
+        remove.setMaximumSize(buttonSize);
 
         ListGUI buttonPanel = new ListGUI(edit);
         buttonPanel.addListElement(remove);

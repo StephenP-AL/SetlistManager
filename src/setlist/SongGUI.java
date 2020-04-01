@@ -71,6 +71,7 @@ public class SongGUI extends JPanel {
         titleDataLabel = new JLabel(title);
         titleDataLabel.setBorder(labelBorder);
         titleDataLabel.setFont(Large);
+        titleDataLabel.setMaximumSize(new Dimension(500,16)); // I have no idea why this works, but it does
         composerDataLabel = new JLabel(composer);
         composerDataLabel.setBorder(labelBorder);
         keyDataLabel = new JLabel(key);
@@ -88,22 +89,22 @@ public class SongGUI extends JPanel {
         archiveDataLabel.setBorder(labelBorder);
 
         labels.add(titleLabel);
-        labels.add(composerLabel);
-        labels.add(keyLabel);
-        labels.add(genreLabel);
+        if (tempo != -1){labels.add(composerLabel);}
+        if (tempo != -1){labels.add(keyLabel);}
+        if (tempo != -1){labels.add(genreLabel);}
         labels.add(lengthLabel);
-        labels.add(tempoLabel);
-        labels.add(introLabel);
-        labels.add(archiveLabel);
+        if (tempo != -1){labels.add(tempoLabel);}
+        if (tempo != -1){labels.add(introLabel);}
+        if (tempo != -1){labels.add(archiveLabel);}
 
         data.add(titleDataLabel);
-        data.add(composerDataLabel);
-        data.add(keyDataLabel);
-        data.add(genreDataLabel);
+        if (tempo != -1){data.add(composerDataLabel);}
+        if (tempo != -1){data.add(keyDataLabel);}
+        if (tempo != -1){data.add(genreDataLabel);}
         data.add(lengthDataLabel);
-        data.add(tempoDataLabel);
-        data.add(introDataLabel);
-        data.add(archiveDataLabel);
+        if (tempo != -1){data.add(tempoDataLabel);}
+        if (tempo != -1){data.add(introDataLabel);}
+        if (tempo != -1){data.add(archiveDataLabel);}
 
         add(labels);
         add(data);

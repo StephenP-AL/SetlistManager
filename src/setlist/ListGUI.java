@@ -14,20 +14,20 @@ public class ListGUI extends JPanel {
         create();
     }
 
-    public ListGUI(Component c){ // Can we safely change this to JComponent?
+    public ListGUI(JComponent c){
         create();
         add(c);
-        ((JComponent)c).setAlignmentX(LEFT_ALIGNMENT);
+        c.setAlignmentX(LEFT_ALIGNMENT);
     }
 
-    public void addListElement(Component c) {
+    public void addListElement(JComponent c) {
         add(c);
-        ((JComponent)c).setAlignmentX(LEFT_ALIGNMENT);
+        c.setAlignmentX(LEFT_ALIGNMENT);
         repaint();
         revalidate();
     }
 
-    public void removeListElement(Component c) {
+    public void removeListElement(JComponent c) {
         Component[] cList = this.getComponents();
         for (Component component : cList) {
             if (component.equals(c)) {
