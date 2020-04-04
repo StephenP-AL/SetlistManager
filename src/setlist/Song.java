@@ -18,6 +18,9 @@ public class Song implements Comparable<Song> {
     private int Tempo; // in beats per minute
     private int Intro; // length of introduction in seconds
 
+    /**
+     * Default constructor, stores data about a song
+     */
     public Song() {
         Title = "";
         Composer = "";
@@ -28,6 +31,18 @@ public class Song implements Comparable<Song> {
         Intro = 0;
         this.setArchive(false);
     }
+
+    /**
+     * Parameterized constructor, stores data about a song
+     * @param title Title of the song
+     * @param composer Composer of the song
+     * @param key Key of the song
+     * @param genre Genre of the song
+     * @param length Length of the song in seconds
+     * @param tempo Tempo of the song in BPM
+     * @param intro Length of introduction in seconds
+     * @param archive True to exclude from all created setlists
+     */
     public Song(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive){
         this.setTitle(title);
         this.setComposer(composer);
@@ -39,15 +54,22 @@ public class Song implements Comparable<Song> {
         this.setArchive(archive);
 
     }
+
+    /**
+     * Determines if song data is equal to another song
+     * @param s Song compared to
+     * @return Returns true if songs are equal, false if not
+     */
     public boolean equals(Song s) {
-        if (Title.equals(s.getTitle())
+        if (super.equals(s) || (
+                Title.equals(s.getTitle())
                 && Composer.equals(s.getComposer())
                 && Key.equals(s.getKey())
                 && Genre.equals(s.getGenre())
                 && Archive == s.isArchive()
                 && Length == s.getLength()
                 && Tempo == s.getTempo()
-                && Intro == s.getIntro()) {
+                && Intro == s.getIntro())) {
             return true;
         } else {
             return false;
@@ -192,11 +214,13 @@ public class Song implements Comparable<Song> {
         return this.Tempo;
     }
 
+
     /**
      * @param compare Song being compared
      * @param tolerence Range (from invoking song) of similarity to be considered a match. 0.1 is a 10% range
      * @return True if the compared Song Tempo is within the specified tolerence of the invoking Song Tempo
      */
+    /* I don't think we're using this anymore
     public boolean matchTempo(Song compare, double tolerence){
         double difference;
         if (compare.getTempo() > this.getTempo()){
@@ -213,15 +237,18 @@ public class Song implements Comparable<Song> {
         else {
             return FALSE;
         }
-    }
+    }*/
 
     /**
      * @param compare Song being compared
      * @return True if Key is the same, False if different
      */
+    /*  Not in use
     public boolean matchKey(Song compare){
         return (this.getKey().equals(compare.getKey()));
     }
+    */
+
     @Override
     public String toString() {
         return "Song{" +
@@ -236,15 +263,14 @@ public class Song implements Comparable<Song> {
                 '}';
     }
 
+    /**
+     * Compares to another song for sorting.
+     * @param o Song compared to
+     * @return Returns 0 if equal, negative number if less than the compared song, positive number if greater than compared song
+     */
     @Override
-    public int compareTo(Song o) {
-        if ((this.getTitle().toUpperCase()).equals((o.getTitle()).toUpperCase())) {
-            // System.out.println("Equal composer");
+        public int compareTo(Song o) {
             return (this.getTitle().toUpperCase()).compareTo((o.getTitle()).toUpperCase());
-        }
-        else{
-            return (this.getTitle().toUpperCase()).compareTo((o.getTitle()).toUpperCase());
-        }
     }
 
     @Override
