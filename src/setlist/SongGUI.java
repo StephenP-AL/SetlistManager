@@ -176,7 +176,7 @@ public class SongGUI extends JPanel {
         composerDataLabel.setText(composer);
         keyDataLabel.setText(key);
         genreDataLabel.setText(genre);
-        lengthDataLabel.setText(String.valueOf(length));
+        lengthDataLabel.setText(String.valueOf(length / 60) + ":" + String.valueOf(length % 60));
         tempoDataLabel.setText(String.valueOf(tempo));
         introDataLabel.setText(String.valueOf(intro));
         archiveDataLabel.setSelected(archive);
