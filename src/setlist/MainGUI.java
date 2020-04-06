@@ -227,7 +227,7 @@ public class MainGUI {
                 int r = fileChooser.showSaveDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
                     String filename = fileChooser.getSelectedFile().toString();
-                    fileIO.exportTXT(setlist, filename);
+                    fileIO.exportSetlist(setlist, filename);
                 }
             }
         });

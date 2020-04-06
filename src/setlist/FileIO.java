@@ -182,7 +182,23 @@ public class FileIO {
         //stub
     }
 
-    public void exportTXT(Setlist source, String file){
+    public void exportSetlist(Setlist source, String file){
+        if (file.endsWith(".txt")){
+            exportTXT(source, file);
+        }
+        else if (file.endsWith(".setlist")){
+            writeCatalog(source, file);
+        }
+        else if (file.endsWith(".html")){
+            exportHTML(source, file);
+        }
+        else{
+            file = file + ".html";
+            exportHTML(source, file);
+        }
+    }
+
+    private void exportTXT(Setlist source, String file){
 
         PrintWriter out = null;
         try {
@@ -217,6 +233,151 @@ public class FileIO {
                 out.close();
             }
     }
+    private void exportHTML(Setlist source, String file){
+        PrintWriter out = null;
+        try {
+            out =  new PrintWriter(new FileWriter(file, false));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (out != null) {
 
+            //Header information
+            out.println("<!DOCTYPE html>\n" +
+                    "<html>\n" +
+                    "  <head>\n" +
+                    "      <meta charset=\"utf-8\">\n" +
+                    "      <title>Setlist</title>\n" +
+                    "      <style>\n" +
+                    "        body {font-family: Helvetica, Arial, Sans-Serif;letter-spacing: 1px;}\n" +
+                    "        #header {\n" +
+                    "          margin-top: 30px;\n" +
+                    "          width: 600px;\n" +
+                    "          display: grid;\n" +
+                    "          grid-template-columns: repeat(2, 1fr);\n" +
+                    "          grid-column-gap: 20px;\n" +
+                    "          grid-row-gap: 0;\n" +
+                    "          padding:3px;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        #header > div {\n" +
+                    "          height: 10px;\n" +
+                    "          padding: 5px 0 5px 0;\n" +
+                    "          }\n" +
+                    "\n" +
+                    "        .set {\n" +
+                    "          grid-area: 1 / 1 / 2 / 2\n" +
+                    "        }\n" +
+                    "        .total {\n" +
+                    "          grid-area: 1 / 2 / 2 / 3\n" +
+                    "        }\n" +
+                    "        .breaks {\n" +
+                    "          grid-area: 2 / 1 / 2 / 3\n" +
+                    "        }\n" +
+                    "        .types {\n" +
+                    "          grid-area: 3 / 1 / 4 / 3\n" +
+                    "        }\n" +
+                    "        .song {\n" +
+                    "          margin-top: 30px;\n" +
+                    "          width: 600px;\n" +
+                    "          display: grid;\n" +
+                    "          grid-template-columns: repeat(6, 1fr);\n" +
+                    "          grid-column-gap: 20px;\n" +
+                    "          grid-row-gap: 0;\n" +
+                    "          padding:3px;\n" +
+                    "          border: 1px solid black;\n" +
+                    "          padding-left: 20px;\n" +
+                    "          padding-bottom: 20px;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        .song > div {\n" +
+                    "          padding: 10px 0 0 0;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        .title {\n" +
+                    "          font-size: 24px;\n" +
+                    "          font-weight: 900;\n" +
+                    "          margin-bottom: 10px;\n" +
+                    "          overflow-wrap: break-word;\n" +
+                    "          grid-area: 1 / 1 / 2 / 7;\n" +
+                    "        }\n" +
+                    "        .composer {\n" +
+                    "          grid-area: 2 / 1 / 3 / 7;\n" +
+                    "        }\n" +
+                    "        .key {\n" +
+                    "          grid-area: 3 / 1 / 4 / 4;\n" +
+                    "        }\n" +
+                    "        .genre {\n" +
+                    "          grid-area: 3 / 4 / 4 / 7;\n" +
+                    "        }\n" +
+                    "        .length {\n" +
+                    "          grid-area: 4 / 1 / 5 / 3\n" +
+                    "        }\n" +
+                    "        .tempo {\n" +
+                    "          grid-area: 4 / 3 / 5 / 5\n" +
+                    "        }\n" +
+                    "        .intro {\n" +
+                    "          grid-area: 4 / 5 / 5 / 7\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        .intermission {\n" +
+                    "          margin-top: 30px;\n" +
+                    "          width: 600px;\n" +
+                    "          display: grid;\n" +
+                    "          grid-template-columns: repeat(2, 1fr);\n" +
+                    "          grid-row-gap: 0;\n" +
+                    "          padding:3px;\n" +
+                    "          font-size: 24px;\n" +
+                    "        }\n" +
+                    "\n" +
+                    "        .intermission > div {\n" +
+                    "          height: 30px;\n" +
+                    "          padding: 10px 0 0 0;\n" +
+                    "          }\n" +
+                    "\n" +
+                    "      </style>\n" +
+                    "  </head>\n" +
+                    "\n" +
+                    "  <body>\n" +
+                    "\n" +
+                    "    <div id=\"header\">\n" +
+                    "      <div class=\"set\">Setlist</div>\n" +
+                    "      <div class=\"total\">Total length:" +   source.getLengthHour() + ":" + source.getLengthMinute() + ":" + source.getLengthSecond() + "</div>\n" +
+                    "      <div class=\"breaks\">" + source.getBreakCount() +  " breaks, " + (source.getBreakLength()/60) + ":" + (source.getBreakLength()%60) + " each</div>");
+                    out.printf("      <div class=\"types\">Genres: ");
+                    if (source.getGenreRestrict().isEmpty()){
+                        out.printf(" All");
+                    }
+                    else {
+                        for (String i : source.getGenreRestrict()) {
+                            out.printf(i + "    ");
+                        }
+                    }
+                    out.printf("</div>\n" +
+                    "    </div>");
+
+                    for(Object i:source.reviewSongList()) {
+                        if(((Song)i).getTempo() == -1){
+                            out.println("<div class=\"intermission\">\n" +
+                                            "      <div>INTERMISSION</div>\n" +
+                                            "      <div>" +  ((Song) i).getLengthMin() + ":" + (((Song) i).getLengthSec()) + "</div>\n" +
+                                            "    </div>");
+                        }
+                        else {
+                            out.println(" <div class=\"song\">\n" +
+                                    "      <div class=\"title\">"+  ((Song) i).getTitle() + "</div>\n" +
+                                    "      <div class=\"composer\">By: "+ ((Song) i).getComposer() + "</div>\n" +
+                                    "      <div class=\"key\">Key: " + ((Song) i).getKey() + "</div>\n" +
+                                    "      <div class=\"genre\">Genre: " + ((Song)i).getGenre() + "</div>\n" +
+                                    "      <div class=\"length\">Length: " + ((Song)i).getLengthMin() + ":" + ((Song)i).getLengthSec() + "</div>\n" +
+                                    "      <div class=\"tempo\">Tempo: " + ((Song)i).getTempo() + "</div>\n" +
+                                    "      <div class=\"intro\">Intro: " + ((Song)i).getIntro() + "</div>\n" +
+                                    "    </div>");
+                        }
+                    }
+                    out.println("</body> </html>");
+                    out.close();
+        }
+    }
 
 }
