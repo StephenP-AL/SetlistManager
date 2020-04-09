@@ -79,7 +79,7 @@ public class SongGUI extends JPanel {
         keyDataLabel.setBorder(labelBorder);
         genreDataLabel = new JLabel(genre);
         genreDataLabel.setBorder(labelBorder);
-        lengthDataLabel = new JLabel(String.valueOf(length / 60) + ":" + String.valueOf(length % 60));
+        lengthDataLabel = new JLabel(String.format("%d:%02d", (length / 60), (length % 60)));
         lengthDataLabel.setBorder(labelBorder);
         tempoDataLabel = new JLabel(String.valueOf(tempo));
         tempoDataLabel.setBorder(labelBorder);
@@ -176,7 +176,7 @@ public class SongGUI extends JPanel {
         composerDataLabel.setText(composer);
         keyDataLabel.setText(key);
         genreDataLabel.setText(genre);
-        lengthDataLabel.setText(String.valueOf(length / 60) + ":" + String.valueOf(length % 60));
+        lengthDataLabel.setText(String.format("%d:%02d", (length / 60), (length % 60)));
         tempoDataLabel.setText(String.valueOf(tempo));
         introDataLabel.setText(String.valueOf(intro));
         archiveDataLabel.setSelected(archive);
