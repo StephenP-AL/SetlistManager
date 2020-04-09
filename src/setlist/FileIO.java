@@ -207,7 +207,7 @@ public class FileIO {
             e.printStackTrace();
         }
         if (out != null) {
-                out.println("Setlist     Total length: " + source.getLengthHour() + ":" + source.getLengthMinute() + ":" + source.getLengthSecond());
+                out.println("Setlist     Total length: " + source.getLengthHour() + ":" + String.format("%02d", source.getLengthMinute()) + ":" + String.format("%02d", source.getLengthSecond()));
                 out.println(source.getBreakCount() + " Breaks, " + source.getBreakLength() + " seconds each");
                 out.printf("Genres: ");
                 if (source.getGenreRestrict().isEmpty()){
@@ -221,13 +221,13 @@ public class FileIO {
                 out.println("\n");
                 for(Object i:source.reviewSongList()) {
                     if(((Song)i).getTempo() == -1){
-                        out.println("\n   INTERMISSION             Length: " + ((Song) i).getLengthMin() + ":" + (((Song) i).getLengthSec()) );
+                        out.println("\n   INTERMISSION             Length: " + ((Song) i).getLengthMin() + ":" + String.format("%02d", (((Song) i).getLengthSec())) );
                     }
                     else {
                         out.println("\n   " + ((Song) i).getTitle());
                         out.println("   By: " + ((Song) i).getComposer());
                         out.println("   Key:    " + ((Song) i).getKey() + "          Genre:" + ((Song) i).getGenre());
-                        out.println("   Length: " + ((Song) i).getLengthMin() + ":" + (((Song) i).getLengthSec()) + "    Tempo:" + ((Song) i).getTempo() + "    Intro:" + ((Song) i).getIntro());
+                        out.println("   Length: " + ((Song) i).getLengthMin() + ":" + String.format("%02d", (((Song) i).getLengthSec())) + "    Tempo:" + ((Song) i).getTempo() + "    Intro:" + ((Song) i).getIntro());
                     }
                 }
                 out.close();
@@ -342,8 +342,8 @@ public class FileIO {
                     "\n" +
                     "    <div id=\"header\">\n" +
                     "      <div class=\"set\">Setlist</div>\n" +
-                    "      <div class=\"total\">Total length:" +   source.getLengthHour() + ":" + source.getLengthMinute() + ":" + source.getLengthSecond() + "</div>\n" +
-                    "      <div class=\"breaks\">" + source.getBreakCount() +  " breaks, " + (source.getBreakLength()/60) + ":" + (source.getBreakLength()%60) + " each</div>");
+                    "      <div class=\"total\">Total length:" +   source.getLengthHour() + ":" + String.format("%02d", source.getLengthMinute()) + ":" + String.format("%02d", source.getLengthSecond()) + "</div>\n" +
+                    "      <div class=\"breaks\">" + source.getBreakCount() +  " breaks, " + (source.getBreakLength()/60) + ":" + String.format("%02d", (source.getBreakLength()%60)) + " each</div>");
                     out.printf("      <div class=\"types\">Genres: ");
                     if (source.getGenreRestrict().isEmpty()){
                         out.printf(" All");
@@ -360,7 +360,7 @@ public class FileIO {
                         if(((Song)i).getTempo() == -1){
                             out.println("<div class=\"intermission\">\n" +
                                             "      <div>INTERMISSION</div>\n" +
-                                            "      <div>" +  ((Song) i).getLengthMin() + ":" + (((Song) i).getLengthSec()) + "</div>\n" +
+                                            "      <div>" +  ((Song) i).getLengthMin() + ":" + String.format("%02d", (((Song) i).getLengthSec())) + "</div>\n" +
                                             "    </div>");
                         }
                         else {
@@ -369,7 +369,7 @@ public class FileIO {
                                     "      <div class=\"composer\">By: "+ ((Song) i).getComposer() + "</div>\n" +
                                     "      <div class=\"key\">Key: " + ((Song) i).getKey() + "</div>\n" +
                                     "      <div class=\"genre\">Genre: " + ((Song)i).getGenre() + "</div>\n" +
-                                    "      <div class=\"length\">Length: " + ((Song)i).getLengthMin() + ":" + ((Song)i).getLengthSec() + "</div>\n" +
+                                    "      <div class=\"length\">Length: " + ((Song) i).getLengthMin() + ":" + String.format("%02d", (((Song) i).getLengthSec())) + "</div>\n" +
                                     "      <div class=\"tempo\">Tempo: " + ((Song)i).getTempo() + "</div>\n" +
                                     "      <div class=\"intro\">Intro: " + ((Song)i).getIntro() + "</div>\n" +
                                     "    </div>");
