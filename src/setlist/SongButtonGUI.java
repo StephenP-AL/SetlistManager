@@ -10,6 +10,13 @@ public class SongButtonGUI extends JPanel {
     protected JButton edit;
     protected JButton remove;
 
+    /**
+     * Creates buttons to edit or remove songs in a Catalog
+     * @param s Songs to which the buttons relate
+     * @param spv
+     * @param c
+     * @param lv
+     */
     private void create(Song s, SongPropertiesGUI spv, Catalog c, ListGUI lv) {
         ImageIcon editIcon = new ImageIcon("EditSong.png");
         Image editImg = editIcon.getImage().getScaledInstance(40,40, Image.SCALE_SMOOTH);

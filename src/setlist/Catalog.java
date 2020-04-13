@@ -36,6 +36,11 @@ public class Catalog {
         return ret;
     }
 
+    /**
+     * Used to retrieve a Song from SongList
+     * @param index Starting position in the ArrayList to look for a Song
+     * @return Returns null if SongList is empty, the Song at the index position, or the next valid song if the index position is null
+     */
     public Song getSong(int index) {
         if (index >= SongList.size()) {
             return null;
@@ -82,6 +87,10 @@ public class Catalog {
         return retSong;
     }
 
+    /**
+     * Removes a Song from the SongList
+     * @param s Reference to Song to be removed
+     */
     public void remove(Song s) {
         int i = 0;
         while (i < SongList.size()) {
@@ -102,10 +111,18 @@ public class Catalog {
         }
         return dup;
     }
+
+    /**
+     *
+     * @return Returns a copy of the SongList
+     */
     public ArrayList<Song> reviewSongList(){
         return new ArrayList<>(SongList);
     }
 
+    /**
+     * Clears the SongList
+     */
     public void clear() {
         SongList.clear();
     }

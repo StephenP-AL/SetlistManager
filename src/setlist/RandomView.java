@@ -15,6 +15,10 @@ public class RandomView implements CatalogView{
         randomCatalog.Shuffle();
     }
 
+    /**
+     * A means to interface with this view
+     * @return the randomized catalog
+     */
     @Override
     public Catalog getList() {
         return randomCatalog;

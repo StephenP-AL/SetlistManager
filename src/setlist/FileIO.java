@@ -178,10 +178,19 @@ public class FileIO {
         }
     }
 
+    /**
+     * Exports a Setlist to a PDF // not implemented
+     * @param source Setlist to export
+     */
     public void exportPDF (Setlist source){
         //stub
     }
 
+    /**
+     * Chooses calls appropriate export method based on file extension
+     * @param source Setlist to export
+     * @param file Write location on disk
+     */
     public void exportSetlist(Setlist source, String file){
         if (file.endsWith(".txt")){
             exportTXT(source, file);
@@ -198,6 +207,11 @@ public class FileIO {
         }
     }
 
+    /**
+     * Exports Setlist to plain text format (.txt)
+     * @param source Setlist to export
+     * @param file Write location on disk
+     */
     private void exportTXT(Setlist source, String file){
 
         PrintWriter out = null;
@@ -233,6 +247,12 @@ public class FileIO {
                 out.close();
             }
     }
+
+    /**
+     * Exports Setlist to HTML format
+     * @param source Setlist to export
+     * @param file Write location on disk
+     */
     private void exportHTML(Setlist source, String file){
         PrintWriter out = null;
         try {
@@ -375,7 +395,7 @@ public class FileIO {
                                     "    </div>");
                         }
                     }
-                    out.println("</body> </html>");
+                    out.println("  </body>\n  </html>");
                     out.close();
         }
     }

@@ -16,6 +16,8 @@ public class SongSelector {
 
     /**
      * Selects the next appropriate Song for a Setlist
+     * @param index Index of the next Song to be added to the Setlist
+     * @param prev Previous Song in the Setlist
      * @return Returns a Song if an appropriate one is found, or null if no appropriate Songs exist.
      */
     public Song nextSong(Song prev, int index){

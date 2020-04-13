@@ -4,13 +4,21 @@ package setlist;
 import java.util.ArrayList;
 import java.util.Set;
 
+/**
+ * A listing of Songs
+ */
 public class Setlist extends Catalog {
     private int Length; // Target length of set in seconds
     private int BreakCount; // Number of breaks / intermissions
     private int BreakLength; // Length of each break in seconds
     private ArrayList<String> GenreRestrict;
 
-
+    /**
+     * Parameterized constructor
+     * @param length Length of the set in seconds
+     * @param breakCount Number of breaks
+     * @param breakLength Length of breaks in seconds
+     */
     public Setlist(int length, int breakCount, int breakLength){
         Length = length;
         BreakCount = breakCount;
@@ -100,6 +108,10 @@ public class Setlist extends Catalog {
         }
     }
 
+    /**
+     *
+     * @return ArrayList of Genres for filtering
+     */
     public ArrayList<String> getGenreRestrict() {
         return GenreRestrict;
     }
@@ -107,7 +119,8 @@ public class Setlist extends Catalog {
 
 
     /**
-     * @param source Catalog view from which songs are selected
+     * Adds Songs to SongList from a CatalogView
+     * @param source CatalogView from which songs are selected
      */
 
     public int Populate(CatalogView source){

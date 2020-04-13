@@ -212,7 +212,6 @@ public class MainGUI {
                 int r = JOptionPane.showConfirmDialog(frame, settingsGUI, "Setlist Settings", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (r == 0) {
                     setlist.setLength(settingsGUI.getSetLength());
-                    //System.out.println(settingsGUI.getSetLength());
                     setlist.setBreakLength(settingsGUI.getBreakLength());
                     setlist.setBreakCount(settingsGUI.getBreakAmount());
                     setlist.setGenreRestrict(settingsGUI.getGenreRestrict());

@@ -214,41 +214,6 @@ public class Song implements Comparable<Song> {
         return this.Tempo;
     }
 
-
-    /**
-     * @param compare Song being compared
-     * @param tolerence Range (from invoking song) of similarity to be considered a match. 0.1 is a 10% range
-     * @return True if the compared Song Tempo is within the specified tolerence of the invoking Song Tempo
-     */
-    /* I don't think we're using this anymore
-    public boolean matchTempo(Song compare, double tolerence){
-        double difference;
-        if (compare.getTempo() > this.getTempo()){
-            difference = compare.getTempo() - this.getTempo();
-        }
-        else{
-            difference = this.getTempo() - compare.getTempo();
-        }
-        double ratio = difference / (double) this.getTempo();
-
-        if ( ratio < tolerence){
-            return TRUE;
-        }
-        else {
-            return FALSE;
-        }
-    }*/
-
-    /**
-     * @param compare Song being compared
-     * @return True if Key is the same, False if different
-     */
-    /*  Not in use
-    public boolean matchKey(Song compare){
-        return (this.getKey().equals(compare.getKey()));
-    }
-    */
-
     @Override
     public String toString() {
         return "Song{" +

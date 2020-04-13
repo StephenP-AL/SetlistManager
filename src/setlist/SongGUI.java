@@ -125,6 +125,10 @@ public class SongGUI extends JPanel {
         create();
     }
 
+    /**
+     * Parameterized constructor using a Song reference
+     * @param s A song
+     */
     public SongGUI(Song s) {
         title = s.getTitle();
         composer = s.getComposer();
@@ -137,6 +141,17 @@ public class SongGUI extends JPanel {
         create();
     }
 
+    /**
+     * Parameterized constructor using individual data for Song class
+     * @param title Song title
+     * @param composer Song composer
+     * @param key Song key
+     * @param genre Song genre
+     * @param length Length of Song in seconds
+     * @param tempo Tempo of Song in BPM
+     * @param intro Length of introduction in seconds
+     * @param archive Archive state; true means will not be included in setlists
+     */
     public SongGUI(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive) {
         this.title = title;
         this.composer = composer;
@@ -148,6 +163,7 @@ public class SongGUI extends JPanel {
         this.archive = archive;
         create();
     }
+
 
     public void changeSong(Song s) {
         title = s.getTitle();
