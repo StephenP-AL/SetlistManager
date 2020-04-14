@@ -6,6 +6,7 @@ public class SongSelector {
     private final ArrayList<Song> SongList;
     public SongSelector(CatalogView view){
         SongList = view.getList().reviewSongList();
+        SongList.removeIf(Song::isArchive);
     }
 
     /**
@@ -16,11 +17,8 @@ public class SongSelector {
      */
     public Song nextSong(Song prev, int index){
         for (int i = 0; i < SongList.size(); i++ ){
-            if (SongList.get(i) == null){
+            if (SongList.get(i) == null) {
                 continue;
-            }
-            if (SongList.get(i).isArchive()){
-                SongList.remove(i);
             }
             if (index % 2 == 0){
                 if (SongList.get(i).getKey().equals(prev.getKey())){
