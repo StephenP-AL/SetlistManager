@@ -2,9 +2,6 @@
 
 package setlist;
 
-import java.util.Collections;
-import java.util.Random;
-
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
@@ -61,19 +58,15 @@ public class Song implements Comparable<Song> {
      * @return Returns true if songs are equal, false if not
      */
     public boolean equals(Song s) {
-        if (super.equals(s) || (
+        return super.equals(s) || (
                 Title.equals(s.getTitle())
-                && Composer.equals(s.getComposer())
-                && Key.equals(s.getKey())
-                && Genre.equals(s.getGenre())
-                && Archive == s.isArchive()
-                && Length == s.getLength()
-                && Tempo == s.getTempo()
-                && Intro == s.getIntro())) {
-            return true;
-        } else {
-            return false;
-        }
+                        && Composer.equals(s.getComposer())
+                        && Key.equals(s.getKey())
+                        && Genre.equals(s.getGenre())
+                        && Archive == s.isArchive()
+                        && Length == s.getLength()
+                        && Tempo == s.getTempo()
+                        && Intro == s.getIntro());
     }
 
     /**
@@ -240,9 +233,7 @@ public class Song implements Comparable<Song> {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Song ret  = new Song(this.Title,this.Composer,this.Key,this.Genre,this.Length,this.Tempo,this.Intro,this.Archive);
-        ret.setIntro(this.Intro);
-        ret.setArchive(FALSE);
-        return ret;
+        super.clone();
+        return new Song(this.Title,this.Composer,this.Key,this.Genre,this.Length,this.Tempo,this.Intro,false);
     }
 }

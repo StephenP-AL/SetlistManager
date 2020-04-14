@@ -2,16 +2,10 @@ package setlist;
 
 import java.util.ArrayList;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 public class SongSelector {
-    private CatalogView view;
-    private ArrayList<Song> SongList;
-    public SongSelector(CatalogView v){
-        view = v;
+    private final ArrayList<Song> SongList;
+    public SongSelector(CatalogView view){
         SongList = view.getList().reviewSongList();
-
     }
 
     /**

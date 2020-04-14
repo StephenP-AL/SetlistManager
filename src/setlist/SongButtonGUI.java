@@ -6,16 +6,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Displays a SongGUI object next to an edit and remove button
+ */
 public class SongButtonGUI extends JPanel {
     protected JButton edit;
     protected JButton remove;
 
     /**
      * Creates buttons to edit or remove songs in a Catalog
-     * @param s Songs to which the buttons relate
-     * @param spv
-     * @param c
-     * @param lv
+     * @param s Song data to display
+     * @param spv SongPropertiesGUI used to edit Song when edit button pressed
+     * @param c Catalog to remove Song from when remove button pressed
+     * @param lv ListGUI to remove Song from when remove button pressed
      */
     private void create(Song s, SongPropertiesGUI spv, Catalog c, ListGUI lv) {
         ImageIcon editIcon = new ImageIcon("EditSong.png");
@@ -105,10 +108,20 @@ public class SongButtonGUI extends JPanel {
         add(buttonPanel);
     }
 
+    /**
+     * Displays data about default song next to buttons
+     */
     public SongButtonGUI() {
         create(new Song(), new SongPropertiesGUI(), new Catalog(), new ListGUI());
     }
 
+    /**
+     * Displays data about chosen Song next to buttons
+     * @param s Song data to display
+     * @param spv SongPropertiesGUI used to edit Song when edit button pressed
+     * @param c Catalog to remove Song from when remove button pressed
+     * @param lv ListGUI to remove Song from when remove button pressed
+     */
     public SongButtonGUI(Song s, SongPropertiesGUI spv, Catalog c, ListGUI lv) {
         create(s, spv, c, lv);
     }

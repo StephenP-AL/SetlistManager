@@ -2,7 +2,7 @@ package setlist;
 
 
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Arrays;
 
 /**
  * A listing of Songs
@@ -11,7 +11,7 @@ public class Setlist extends Catalog {
     private int Length; // Target length of set in seconds
     private int BreakCount; // Number of breaks / intermissions
     private int BreakLength; // Length of each break in seconds
-    private ArrayList<String> GenreRestrict;
+    private final ArrayList<String> GenreRestrict;
 
     /**
      * Parameterized constructor
@@ -95,17 +95,12 @@ public class Setlist extends Catalog {
     public void setGenreRestrict(String input){
         GenreRestrict.clear();
 
-        String splitArray[];            // Create simple array to store split string
+        String[] splitArray;            // Create simple array to store split string
         String delimiter = ",";        // Create delimiter to separate genres
 
         splitArray = input.split(delimiter);    // Split input string into simple array format
 
-        // Loop to add all of splitArray elements into GenreRestrict ArrayList
-        int size = splitArray.length;
-        for(int i = 0; i < size; i++)
-        {
-            GenreRestrict.add(splitArray[i]);
-        }
+        GenreRestrict.addAll(Arrays.asList(splitArray));
     }
 
     /**
@@ -121,6 +116,7 @@ public class Setlist extends Catalog {
     /**
      * Adds Songs to SongList from a CatalogView
      * @param source CatalogView from which songs are selected
+     * @return 0 if setlist fully populated, 1 if SongSelector couldn't return a next song when called
      */
 
     public int Populate(CatalogView source){

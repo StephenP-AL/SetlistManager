@@ -23,9 +23,7 @@ public class FileIO {
         }
 
         Scanner scanFile = new Scanner (infile);
-        // IntelliJ thinks 'new String()' is redundant, but does not run properly without it
-        String line = new String();
-        boolean end = false;
+        String line = "";
         while (scanFile.hasNextLine()){
             // Skip anything that is not a Song
             while (!line.equals("#song")) {
@@ -111,16 +109,6 @@ public class FileIO {
      * @param file Path on disk of file to be written
      */
     public void writeCatalog(Catalog source, String file){
-        boolean overwrite = false;
-        FileReader infile;
-        try {
-            infile = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            overwrite = true;
-        }
-        if (overwrite){
-            //some sort of warning about overwriting existing files
-        }
         PrintWriter out = null;
         try {
             out =  new PrintWriter(new FileWriter(file, false));

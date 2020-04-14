@@ -6,7 +6,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileFilter;
 
 public class MainGUI {
     public static void createAndShowGUI() {
@@ -25,11 +24,7 @@ public class MainGUI {
         //Border
         Border space = BorderFactory.createEmptyBorder(5,5,5,5);
 
-        //Icons!!!
-        ImageIcon editIcon = new ImageIcon("EditSong.png");
-        Image editImg = editIcon.getImage().getScaledInstance(40,40, Image.SCALE_SMOOTH);
-        editIcon = new ImageIcon(editImg);
-        ImageIcon finalEditIcon = editIcon;
+        //Icon!!!
         ImageIcon addIcon = new ImageIcon("AddSong.png");
         Image addImg = addIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
         addIcon = new ImageIcon(addImg);

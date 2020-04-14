@@ -8,10 +8,10 @@ import java.util.ArrayList;
  * Interface to manipulate Setlist Settings
  */
 public class SettingsGUI extends JPanel {
-    private JTextField setLengthTextField = new JTextField();
-    private JTextField breakLengthTextField = new JTextField();
-    private JTextField breakAmountTextField = new JTextField();
-    private JTextField genreRestrictTextField = new JTextField();
+    private final JTextField setLengthTextField = new JTextField();
+    private final JTextField breakLengthTextField = new JTextField();
+    private final JTextField breakAmountTextField = new JTextField();
+    private final JTextField genreRestrictTextField = new JTextField();
 
     /**
      * Parameterized constructor
@@ -29,15 +29,15 @@ public class SettingsGUI extends JPanel {
         breakLengthTextField.setText(String.valueOf(s.getBreakLength()));
         breakAmountTextField.setText(String.valueOf(s.getBreakCount()));
         ArrayList<String> genreRestrict = s.getGenreRestrict();
-        String genreRestrictString = "";
+        StringBuilder genreRestrictString = new StringBuilder();
         for (int i = 0; i < genreRestrict.size(); ++i) {
             if (i != genreRestrict.size()-1) {
-                genreRestrictString += genreRestrict.get(i) + ", ";
+                genreRestrictString.append(genreRestrict.get(i)).append(", ");
             } else {
-                genreRestrictString += genreRestrict.get(i);
+                genreRestrictString.append(genreRestrict.get(i));
             }
         }
-        genreRestrictTextField.setText(genreRestrictString);
+        genreRestrictTextField.setText(genreRestrictString.toString());
 
 
         add(setLengthLabel);
@@ -59,15 +59,15 @@ public class SettingsGUI extends JPanel {
         breakLengthTextField.setText(String.valueOf(s.getBreakLength()));
         breakAmountTextField.setText(String.valueOf(s.getBreakCount()));
         ArrayList<String> genreRestrict = s.getGenreRestrict();
-        String genreRestrictString = "";
+        StringBuilder genreRestrictString = new StringBuilder();
         for (int i = 0; i < genreRestrict.size(); ++i) {
             if (i != genreRestrict.size()-1) {
-                genreRestrictString += genreRestrict.get(i) + ", ";
+                genreRestrictString.append(genreRestrict.get(i)).append(", ");
             } else {
-                genreRestrictString += genreRestrict.get(i);
+                genreRestrictString.append(genreRestrict.get(i));
             }
         }
-        genreRestrictTextField.setText(genreRestrictString);
+        genreRestrictTextField.setText(genreRestrictString.toString());
     }
 
     /**

@@ -3,16 +3,19 @@ package setlist;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Displays a Song object's data in editable fields
+ */
 public class SongPropertiesGUI extends JPanel {
 
-    private JTextField titleTextField = new JTextField();
-    private JTextField composerTextField = new JTextField();
-    private JTextField keyTextField = new JTextField();
-    private JTextField genreTextField = new JTextField();
-    private JTextField lengthTextField = new JTextField();
-    private JTextField tempoTextField = new JTextField();
-    private JTextField introTextField = new JTextField();
-    private JCheckBox archiveCheckBox = new JCheckBox();
+    private final JTextField titleTextField = new JTextField();
+    private final JTextField composerTextField = new JTextField();
+    private final JTextField keyTextField = new JTextField();
+    private final JTextField genreTextField = new JTextField();
+    private final JTextField lengthTextField = new JTextField();
+    private final JTextField tempoTextField = new JTextField();
+    private final JTextField introTextField = new JTextField();
+    private final JCheckBox archiveCheckBox = new JCheckBox();
 
     private void create(Song s) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -102,24 +105,50 @@ public class SongPropertiesGUI extends JPanel {
         add(archivePanel);
     }
 
+    /**
+     * Creates GUI with default song
+     */
     public SongPropertiesGUI() {
         Song s = new Song("", "", "", "", 0, 0, 0, false);
         create(s);
     }
 
+    /**
+     * Creates GUI with chosen song
+     * @param s Song to display data from
+     */
     public SongPropertiesGUI(Song s) {
         create(s);
     }
 
+    /**
+     * Copy constructor, creates GUI based on another GUI
+     * @param spv GUI to display data from
+     */
     public SongPropertiesGUI(SongPropertiesGUI spv) {
         create(new Song(spv.getTitle(), spv.getComposer(), spv.getKey(), spv.getGenre(), spv.getLength(), spv.getTempo(), spv.getIntro(), spv.getArchive()));
     }
 
+    /**
+     * Creates song based on parameters and creates GUI based on newly created song
+     * @param title Title of the song
+     * @param composer Composer of the song
+     * @param key Key of the song
+     * @param genre Genre of the song
+     * @param length Length of the song in seconds
+     * @param tempo Tempo of the song in BPM
+     * @param intro Length of introduction in seconds
+     * @param archive True to exclude from all created setlists
+     */
     public SongPropertiesGUI(String title, String composer, String key, String genre, int length, int tempo, int intro, boolean archive) {
         Song s = new Song(title, composer, key, genre, length, tempo, intro, archive);
         create(s);
     }
 
+    /**
+     * Changes fields to new song data
+     * @param s New song
+     */
     public void changeSong(Song s) {
         titleTextField.setText(s.getTitle());
         composerTextField.setText(s.getComposer());
@@ -131,38 +160,53 @@ public class SongPropertiesGUI extends JPanel {
         archiveCheckBox.setSelected(s.isArchive());
     }
 
+    /**
+     * @return Title field text, returns space if blank
+     */
     public String getTitle() {
-        if (titleTextField.getText() == "") {
+        if (titleTextField.getText().equals("")) {
             return " ";
         } else {
             return titleTextField.getText();
         }
     }
 
+    /**
+     * @return Composer field text, returns space if blank
+     */
     public String getComposer() {
-        if (composerTextField.getText() == "") {
+        if (composerTextField.getText().equals("")) {
             return " ";
         } else {
             return composerTextField.getText();
         }
     }
 
+    /**
+     * @return Key field text, returns space if blank
+     */
     public String getKey() {
-        if (keyTextField.getText() == "") {
+        if (keyTextField.getText().equals("")) {
             return " ";
         } else {
             return keyTextField.getText();
         }
     }
 
+    /**
+     * @return Genre field text, returns space if blank
+     */
     public String getGenre() {
-        if (genreTextField.getText() == "") {
+        if (genreTextField.getText().equals("")) {
             return " ";
         } else {
             return genreTextField.getText();
         }
     }
 
+    /**
+     * @return Integer parsed from length field text, if no integer can be parsed, displays error message and returns 0
+     */
     public int getLength() {
         int n;
         try {
@@ -174,10 +218,16 @@ public class SongPropertiesGUI extends JPanel {
         return n;
     }
 
+    /**
+     * @return Text in length field
+     */
     public String getLengthText() {
         return lengthTextField.getText();
     }
 
+    /**
+     * @return Integer parsed from tempo field text, if no integer can be parsed, displays error message and returns 0
+     */
     public int getTempo() {
         int n;
         try {
@@ -189,10 +239,16 @@ public class SongPropertiesGUI extends JPanel {
         return n;
     }
 
+    /**
+     * @return Text in tempo field
+     */
     public String getTempoText() {
         return tempoTextField.getText();
     }
 
+    /**
+     * @return Integer parsed from intro field text, if no integer can be parsed, displays error message and returns 0
+     */
     public int getIntro() {
         int n;
         try {
@@ -204,10 +260,16 @@ public class SongPropertiesGUI extends JPanel {
         return n;
     }
 
+    /**
+     * @return Text in intro field
+     */
     public String getIntroText() {
         return introTextField.getText();
     }
 
+    /**
+     * @return Selection status of archive check box
+     */
     public boolean getArchive() {
         return archiveCheckBox.isSelected();
     }

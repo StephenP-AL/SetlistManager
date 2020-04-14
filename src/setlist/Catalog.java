@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Catalog {
-    private ArrayList<Song> SongList = new ArrayList<>();
+    private final ArrayList<Song> SongList = new ArrayList<>();
 
     /**
      *
@@ -16,6 +16,7 @@ public class Catalog {
 
     /**
      * @param index Index of the Song in Songlist
+     * @return Song at index, returns null if index out of list bounds
      */
     public Song reviewSong(int index){
         // need some exception handling for outside of arraylist

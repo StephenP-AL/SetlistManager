@@ -7,7 +7,7 @@ import java.awt.*;
  * Displays JComponents vertically in a list
  */
 public class ListGUI extends JPanel {
-    BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
+    final BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 
     /**
      * Applies layout
