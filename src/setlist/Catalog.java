@@ -3,11 +3,14 @@ package setlist;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Aggregates Songs
+ */
 public class Catalog {
     private final ArrayList<Song> SongList = new ArrayList<>();
 
     /**
-     *
+     * Add a song to the catalog
      * @param e Song to be added to SongList
      */
     public void addSong(Song e){
@@ -15,6 +18,7 @@ public class Catalog {
     }
 
     /**
+     * Returns a clone of a song at specified index
      * @param index Index of the Song in Songlist
      * @return Song at index, returns null if index out of list bounds
      */
@@ -79,6 +83,7 @@ public class Catalog {
     }
 
     /**
+     * Removes a song from the catalog
      * @param index Index of song to be removed
      * @return The song removed from SongList
      */
@@ -103,6 +108,7 @@ public class Catalog {
     }
 
     /**
+     * Creates a copy of the catalog
      * @return New Catalog with duplicate SongList
      */
     public Catalog duplicate(){
@@ -114,7 +120,7 @@ public class Catalog {
     }
 
     /**
-     *
+     * Returns an ArrayList of all songs in the catalog
      * @return Returns a copy of the SongList
      */
     public ArrayList<Song> reviewSongList(){

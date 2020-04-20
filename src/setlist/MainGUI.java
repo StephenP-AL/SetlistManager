@@ -7,6 +7,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Manages all graphical components
+ */
 public class MainGUI {
     public static void createAndShowGUI() {
         Catalog c = new Catalog();

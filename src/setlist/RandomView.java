@@ -7,6 +7,7 @@ public class RandomView implements CatalogView{
     Catalog randomCatalog;
 
     /**
+     * Shuffles the catalog view to a random order
      * @param catalog Source Catalog to be shuffled
      */
     @Override

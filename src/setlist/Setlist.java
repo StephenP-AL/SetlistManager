@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * A listing of Songs
+ * A listing of Songs for live performance
  */
 public class Setlist extends Catalog {
     private int Length; // Target length of set in seconds
@@ -27,6 +27,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Set desired set length in seconds
      * @param i Target length of the set in seconds
      */
     public void setLength(int i){
@@ -34,6 +35,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Get desired set length in seconds
      * @return Target length of set in seconds
      */
     public int getLength() {
@@ -41,6 +43,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Get set length in whole hours. Use in conjunction with getLengthMinute and GetLengthSecond
      * @return Target length of set in whole hours
      */
     public int getLengthHour(){
@@ -48,6 +51,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Get set remaining whole minutes less whole hours. Use in conjunction with getLengthHour and getLengthSecond
      * @return Remaining minutes in target length of set less whole hours
      */
     public int getLengthMinute(){
@@ -55,6 +59,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * get set remaining seconds less whole minutes. Use in conjunction with getLengthHour and getLengthMinute
      * @return Remaining seconds in target set length less whole hours and whole minutes
      */
     public int getLengthSecond(){
@@ -62,6 +67,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Sets the number of breaks in the set
      * @param i Number of breaks or intermissions in the set`
      */
     public void setBreakCount(int i){
@@ -69,6 +75,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Gets the number of breaks in the set
      * @return Number of breaks or intermissions in the set
      */
     public int getBreakCount() {
@@ -76,13 +83,14 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Sets the length of each break in the set
      * @param breakLength Length of break or intermission in seconds
      */
     public void setBreakLength(int breakLength) {
         BreakLength = breakLength;
     }
 
-    /**
+    /** Gets the length of each break in the set
      * @return Length of break or intermission in seconds
      */
     public int getBreakLength() {
@@ -90,6 +98,7 @@ public class Setlist extends Catalog {
     }
 
     /**
+     * Sets genre filters for the set.
      * @param input String of genres delimited by space or comma
      */
     public void setGenreRestrict(String input){
@@ -104,7 +113,7 @@ public class Setlist extends Catalog {
     }
 
     /**
-     *
+     * Gets genre filters for the set
      * @return ArrayList of Genres for filtering
      */
     public ArrayList<String> getGenreRestrict() {

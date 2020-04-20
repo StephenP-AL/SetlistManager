@@ -5,6 +5,9 @@ package setlist;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+/**
+ * Data representation of a song and its characteristics
+ */
 public class Song implements Comparable<Song> {
     private String Title;
     private String Composer;
@@ -70,6 +73,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets the song title
      * @param title Title of the song.
      */
     public void setTitle(String title){
@@ -77,6 +81,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets the song title
      * @return Title of the song
      */
     public String getTitle(){
@@ -84,6 +89,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets song composer
      * @param composer The song's composer
      */
     public void setComposer(String composer){
@@ -91,6 +97,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets song composer
      * @return The song's composer
      */
     public String getComposer(){
@@ -98,6 +105,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets song key
      * @param key The song's key
      */
     public void setKey(String key) {
@@ -105,6 +113,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets song key
      * @return The song's key
      */
     public String getKey(){
@@ -112,6 +121,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets song genre
      * @param genre The song's genre
      */
     public void setGenre(String genre) {
@@ -119,6 +129,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets song genre
      * @return The song's genre
      */
     public String getGenre() {
@@ -126,6 +137,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Get song archive status
      * @return Returns true if archived
      */
     public boolean isArchive() {
@@ -133,6 +145,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Set song archive status
      * @param archive Set TRUE to archive song
      */
     public void setArchive(boolean archive) {
@@ -152,6 +165,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets song introduction length
      * @param intro Length of introduction in seconds
      */
     public void setIntro(int intro) {
@@ -159,6 +173,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets song introduction length
      * @return Returns intro length in seconds
      */
     public int getIntro(){
@@ -166,6 +181,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets song length
      * @param length Total length of song in seconds
      */
     public void setLength(int length) {
@@ -173,6 +189,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets song length
      * @return Returns total song length in seconds
      */
     public int getLength() {
@@ -180,6 +197,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Get song length in whole minutes. Use in conjunction with getLengthSec
      * @return Returns whole minutes of the song
      */
     public int getLengthMin(){
@@ -187,6 +205,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Get song length in seconds less whole minutes. Use in conjunction with getLengthMin
      * @return Returns remaining seconds of song. Use with getLengthMin for total song length
      */
     public int getLengthSec(){
@@ -194,6 +213,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Sets song tempo
      * @param tempo Song tempo in BPM
      */
     public void setTempo(int tempo) {
@@ -201,6 +221,7 @@ public class Song implements Comparable<Song> {
     }
 
     /**
+     * Gets song tempo
      * @return Returns tempo in BPM
      */
     public int getTempo() {

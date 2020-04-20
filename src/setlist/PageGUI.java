@@ -3,6 +3,9 @@ package setlist;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Arranges GUI in a 2 tabbed window
+ */
 public class PageGUI extends JPanel {
     /**
      * Arranges 2 components horizontally in a panel

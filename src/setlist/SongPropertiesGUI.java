@@ -161,6 +161,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets title field text
      * @return Title field text, returns space if blank
      */
     public String getTitle() {
@@ -172,6 +173,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets composer field text
      * @return Composer field text, returns space if blank
      */
     public String getComposer() {
@@ -183,6 +185,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets key field text
      * @return Key field text, returns space if blank
      */
     public String getKey() {
@@ -194,6 +197,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets genre field text
      * @return Genre field text, returns space if blank
      */
     public String getGenre() {
@@ -204,7 +208,7 @@ public class SongPropertiesGUI extends JPanel {
         }
     }
 
-    /**
+    /** Gets integer from length field
      * @return Integer parsed from length field text, if no integer can be parsed, displays error message and returns 0
      */
     public int getLength() {
@@ -219,6 +223,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets text from length field
      * @return Text in length field
      */
     public String getLengthText() {
@@ -226,6 +231,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets integer  from tempo field
      * @return Integer parsed from tempo field text, if no integer can be parsed, displays error message and returns 0
      */
     public int getTempo() {
@@ -240,6 +246,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets text from tempo field
      * @return Text in tempo field
      */
     public String getTempoText() {
@@ -247,6 +254,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets integer from intro field
      * @return Integer parsed from intro field text, if no integer can be parsed, displays error message and returns 0
      */
     public int getIntro() {
@@ -261,6 +269,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets text from intro field
      * @return Text in intro field
      */
     public String getIntroText() {
@@ -268,6 +277,7 @@ public class SongPropertiesGUI extends JPanel {
     }
 
     /**
+     * Gets status from archive checkbox
      * @return Selection status of archive check box
      */
     public boolean getArchive() {

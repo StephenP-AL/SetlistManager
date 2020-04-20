@@ -5,6 +5,10 @@ package setlist;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Reads and writes catalog data from and to files on disk
+ */
+
 public class FileIO {
 
     /**
@@ -175,7 +179,7 @@ public class FileIO {
     }
 
     /**
-     * Chooses calls appropriate export method based on file extension
+     * Chooses and calls appropriate export method based on file extension
      * @param source Setlist to export
      * @param file Write location on disk
      */

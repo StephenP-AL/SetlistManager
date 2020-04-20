@@ -8,6 +8,7 @@ public class TitleView implements CatalogView{
     Catalog alphabeticalCatalog;
 
     /**
+     * Sorts catalog view alphabetically by song title
      * @param catalog Catalog to be sorted
      */
     @Override

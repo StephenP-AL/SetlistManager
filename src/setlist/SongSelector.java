@@ -2,6 +2,9 @@ package setlist;
 
 import java.util.ArrayList;
 
+/**
+ * Procedurally selects songs from a CatalogView to ensure sequential variety in key and tempo.
+ */
 public class SongSelector {
     private final ArrayList<Song> SongList;
     public SongSelector(CatalogView view){

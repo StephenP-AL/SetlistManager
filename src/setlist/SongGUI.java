@@ -4,6 +4,9 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+/**
+ * Displays song data for review
+ */
 public class SongGUI extends JPanel {
 
     private String title;
@@ -113,6 +116,9 @@ public class SongGUI extends JPanel {
         setBorder(BorderFactory.createRaisedBevelBorder());
     }
 
+    /**
+     * Default constructor
+     */
     public SongGUI() {
         title = " ";
         composer = " ";
@@ -164,7 +170,10 @@ public class SongGUI extends JPanel {
         create();
     }
 
-
+    /**
+     * Sets GUI to display specified song
+     * @param s song to display
+     */
     public void changeSong(Song s) {
         title = s.getTitle();
         composer = s.getComposer();
@@ -198,34 +207,66 @@ public class SongGUI extends JPanel {
         archiveDataLabel.setSelected(archive);
     }
 
+    /**
+     * Gets song title
+     * @return song title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Gets song composer
+     * @return Song composer
+     */
     public String getComposer() {
         return composer;
     }
 
+    /**
+     * Gets song key
+     * @return Song key
+     */
     public String getKey() {
         return key;
     }
 
+    /**
+     * Gets song genre
+     * @return Song genre
+     */
     public String getGenre() {
         return genre;
     }
 
+    /**
+     * Gets song length
+     * @return song length
+     */
     public int getLength() {
         return length;
     }
 
+    /**
+     * Gets song tempo
+     * @return song tempo
+     */
     public int getTempo() {
         return tempo;
     }
 
+    /**
+     * Gets song introduction length
+     * @return song introduction length
+     */
     public int getIntro() {
         return intro;
     }
 
+    /**
+     * Gets song archive status
+     * @return song archive status
+     */
     public boolean getArchive() {
         return archive;
     }

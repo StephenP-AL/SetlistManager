@@ -93,7 +93,7 @@ public class SettingsGUI extends JPanel {
     }
 
     /**
-     *
+     * Gets text from genreRestrictTextField
      * @return Text in genreRestrictTextField
      */
     public String getGenreRestrict() {
