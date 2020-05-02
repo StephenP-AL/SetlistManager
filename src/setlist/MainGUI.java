@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 public class MainGUI {
     public static void createAndShowGUI() {
         Catalog c = new Catalog();
-        RandomView randomCatalog = new RandomView();
         Setlist setlist = new Setlist(3600, 1, 600);
         FileIO fileIO = new FileIO();
         Dimension buttonSize = new Dimension(190,50);
@@ -186,9 +185,8 @@ public class MainGUI {
                 tabbedPane.repaint();
                 tabbedPane.revalidate();
 
-                randomCatalog.Sort(c);
 
-                int retValue = setlist.Populate(randomCatalog);
+                int retValue = setlist.Populate(c);
                 Song setlistSong;
                 int i = 0;
                 while ((setlistSong = setlist.getSong(i)) != null) {

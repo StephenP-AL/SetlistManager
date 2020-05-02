@@ -249,7 +249,12 @@ public class Song implements Comparable<Song> {
      */
     @Override
         public int compareTo(Song o) {
-            return (this.getTitle().toUpperCase()).compareTo((o.getTitle()).toUpperCase());
+        if ((this.getComposer().toUpperCase()).equals((o.getComposer()).toUpperCase())) {
+                return (this.getTitle().toUpperCase()).compareTo((o.getTitle()).toUpperCase());
+            }
+            else{
+                return (this.getComposer().toUpperCase()).compareTo((o.getComposer()).toUpperCase());
+            }
     }
 
     @Override

@@ -7,9 +7,10 @@ import java.util.ArrayList;
  */
 public class SongSelector {
     private final ArrayList<Song> SongList;
-    public SongSelector(CatalogView view){
-        SongList = view.getList().reviewSongList();
+    public SongSelector(Catalog view){
+        SongList = view.reviewSongList();
         SongList.removeIf(Song::isArchive);
+        SongList.sort(Song::compareTo);
     }
 
     /**

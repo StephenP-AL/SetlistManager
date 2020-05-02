@@ -126,7 +126,7 @@ public class Setlist extends Catalog {
      * @return 0 if setlist fully populated, 1 if SongSelector couldn't return a next song when called
      */
 
-    public int Populate(CatalogView source){
+    public int Populate(Catalog source){
         SongSelector select = new SongSelector(source);
         Song prev = new Song("a","b","c","g",1,1,1,false);
         int index = 0;
