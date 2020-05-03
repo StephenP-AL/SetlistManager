@@ -8,7 +8,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MainGUI.createAndShowGUI();
+        String OS;
+        System.out.println(System.getProperty("os.name"));
+
+        //MainGUI.createAndShowGUI();
 
     }
 }
