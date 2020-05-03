@@ -8,10 +8,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String OS;
-        System.out.println(System.getProperty("os.name"));
+        //System.out.println(System.getProperty("user.home"));
+        //ConfigManager settings = new ConfigManager();
 
-        //MainGUI.createAndShowGUI();
+
+        MainGUI.createAndShowGUI();
 
     }
 }
