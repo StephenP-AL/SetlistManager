@@ -9,8 +9,9 @@ Save user preferences between sessions.
 
 How to use:
 1. Download the project, compile, and run
+1 (alternate). Download the executable jar at https://www.dropbox.com/s/h337iqe9hm9mnx4/SetlistManager_jar.zip?dl=0
 2. Start adding songs on the Catalog tab. Be sure to fill all fields.
-2(alternate).  Select Add Songs from File, then open the Example.setlist file to try out these features.
+2 (alternate).  Select Add Songs from File, then open the Example.setlist file to try out these features.
 3. Go to the Setlist tab
 4. Select Setlist Settings, and adjust to your preferences
 5. Select Generate Setlist and review.
