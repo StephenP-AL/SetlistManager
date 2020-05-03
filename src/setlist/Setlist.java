@@ -99,7 +99,7 @@ public class Setlist extends Catalog {
 
     /**
      * Sets genre filters for the set.
-     * @param input String of genres delimited by space or comma
+     * @param in String of genres delimited by space or comma
      */
 
     public void setGenreRestrict(String in){
@@ -121,7 +121,7 @@ public class Setlist extends Catalog {
 
 
     /**
-     * Adds Songs to SongList from a CatalogView
+     * Adds Songs to SongList from a Catalog
      * @param source CatalogView from which songs are selected
      * @return 0 if setlist fully populated, 1 if SongSelector couldn't return a next song when called
      */

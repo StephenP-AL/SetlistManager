@@ -1,6 +1,7 @@
 package setlist;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Procedurally selects songs from a CatalogView to ensure sequential variety in key and tempo.
@@ -10,7 +11,7 @@ public class SongSelector {
     public SongSelector(Catalog view){
         SongList = view.reviewSongList();
         SongList.removeIf(Song::isArchive);
-        SongList.sort(Song::compareTo);
+        Collections.shuffle(SongList);
     }
 
     /**
