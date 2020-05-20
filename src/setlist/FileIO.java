@@ -31,6 +31,7 @@ public class FileIO {
         while (scanFile.hasNextLine()){
             // Skip anything that is not a Song
             while (!line.equals("#song")) {
+
                 line = scanFile.nextLine();
                 // Stops at the end of the file
                 if (line.equals("#eof") || !scanFile.hasNextLine()){
@@ -113,6 +114,7 @@ public class FileIO {
      * @param file Path on disk of file to be written
      */
     public void writeCatalog(Catalog source, String file){
+        System.out.println("catalogwriter: " + file  );
         PrintWriter out = null;
         try {
             out =  new PrintWriter(new FileWriter(file, false));

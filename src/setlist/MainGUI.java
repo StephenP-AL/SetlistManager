@@ -11,10 +11,11 @@ import java.awt.event.ActionListener;
  * Manages all graphical components
  */
 public class MainGUI {
-    public static void createAndShowGUI() {
+    public static void createAndShowGUI(ConfigManager config) {
         Catalog c = new Catalog();
-        Setlist setlist = new Setlist(3600, 1, 600);
+        Setlist setlist = new Setlist(config.getDefaultSetLength(), config.getDefaultBreakCount(), config.getDefaultBreakLength());
         FileIO fileIO = new FileIO();
+
         Dimension buttonSize = new Dimension(190,50);
 
 
@@ -39,7 +40,7 @@ public class MainGUI {
         JButton addSong = new JButton("Add Song");
         addSong.setBorder(buttonBorder);
         addSong.setMaximumSize(buttonSize);
-        JButton addFromFile = new JButton("Add Song(s) from File");
+        JButton addFromFile = new JButton("Open Catalog");
         addFromFile.setBorder(buttonBorder);
         addFromFile.setMaximumSize(buttonSize);
         JButton exportCatalog = new JButton("Export Catalog");
@@ -60,6 +61,13 @@ public class MainGUI {
         catalogScroll.setBorder(space);
         catalogScroll.getVerticalScrollBar().setUnitIncrement(16);
         catalogScroll.getHorizontalScrollBar().setUnitIncrement(16);
+        if (config.getLastCatalog() != null){
+            fileIO.openCatalog(config.getLastCatalog(),c);
+            c.sortTitle();
+            for (Song i:c.reviewSongList()){
+                catalogList.addListElement(new SongButtonGUI(i, new SongPropertiesGUI(i), c, catalogList));
+            }
+        }
 
         ListGUI catalogButtons = new ListGUI();
         catalogButtons.setBorder(space);
@@ -68,7 +76,7 @@ public class MainGUI {
         addSong.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Song songToAdd = new Song();
+                Song songToAdd = new Song("","","","",0,0,config.getDefaultIntro(),false);
                 addSongView.changeSong(songToAdd);
                 int r = JOptionPane.showConfirmDialog(frame, addSongView, "Add Song", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, finalAddIcon);
                 if (r == 0) {
@@ -133,10 +141,12 @@ public class MainGUI {
                 if (r == JFileChooser.APPROVE_OPTION) {
                     Catalog fileCatalog = new Catalog();
                     String filename = fileChooser.getSelectedFile().toString();
+                    config.setLastCatalog(filename);
                     fileIO.openCatalog(filename, fileCatalog);
                     fileCatalog.sortTitle();
                     Song fileSong;
                     int i = 0;
+                    catalogList.clear();
                     while ((fileSong = fileCatalog.getSong(i)) != null) {
                         c.addSong(fileSong);
                         catalogList.addListElement(new SongButtonGUI(fileSong, new SongPropertiesGUI(fileSong), c, catalogList));
@@ -241,4 +251,5 @@ public class MainGUI {
         frame.setVisible(true);
 
     }
+
 }
