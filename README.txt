@@ -5,7 +5,7 @@ If it looks like it was written by a couple of undergrads with no prior Java exp
 Current version : it-was-good-enough-to-turn-in-for-a-grade
 
 Currently working on:
-Save user preferences between sessions.
+Save user preferences between session (partial functionality).
 
 How to use:
 1. Download the project, compile, and run
