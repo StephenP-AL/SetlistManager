@@ -75,7 +75,7 @@ public class ConfigManager {
         System.out.println("Loading local configuration");
         String file;
         if(OS.startsWith("Windows")){
-            file = System.getProperty("user.home") + "\\SetlistManager\\settings.cfg";
+            file = System.getProperty("user.home") + "\\AppData\\Roaming\\SetlistManager\\settings.cfg";
         }
         else if (OS.startsWith("Linux")){
             file = System.getProperty("user.home") + "/.config/SetlistManager/settings.cfg";
@@ -138,7 +138,7 @@ public class ConfigManager {
     public void writeConfig(){
         String file;
         if(OS.startsWith("Windows")){
-            file = System.getProperty("user.home") + "\\SetlistManager\\settings.cfg";
+            file = System.getProperty("user.home") + "\\AppData\\Roaming\\SetlistManager\\settings.cfg";
         }
         else if (OS.startsWith("Linux")){
             file = System.getProperty("user.home") + "/.config/SetlistManager/settings.cfg";
