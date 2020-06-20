@@ -134,7 +134,7 @@ public class MainGUI {
         addFromFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
+                JFileChooser fileChooser = new JFileChooser(config.getLastCatalog());
                 FileNameExtensionFilter setlistFileExtension = new FileNameExtensionFilter("setlist","SETLIST");
                 fileChooser.setFileFilter(setlistFileExtension);
                 int r = fileChooser.showOpenDialog(frame);
@@ -159,7 +159,7 @@ public class MainGUI {
         exportCatalog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
+                JFileChooser fileChooser = new JFileChooser(config.getLastCatalog());
                 int r = fileChooser.showSaveDialog(frame);
                 if (r == JFileChooser.APPROVE_OPTION) {
                     String filename = fileChooser.getSelectedFile().toString();
@@ -167,6 +167,7 @@ public class MainGUI {
                         filename = filename + ".setlist";
                     }
                     fileIO.writeCatalog(c, filename);
+                    config.setLastCatalog(filename);
                 }
             }
         });
