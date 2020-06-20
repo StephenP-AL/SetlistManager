@@ -2,7 +2,7 @@ SetlistManager is a program for cataloging your songs, and arranging them into s
 
 If it looks like it was written by a couple of undergrads with no prior Java experience, it's because it was.
 
-Current version : it-was-good-enough-to-turn-in-for-a-grade
+Current version : Trying-to-save-settings-between-sessions
 
 Currently working on:
 Save user preferences between session (partial functionality).
