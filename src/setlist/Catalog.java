@@ -133,4 +133,10 @@ public class Catalog {
     public void clear() {
         SongList.clear();
     }
+    /**
+    * Returns the size of the catalog
+    */
+    public int size() {
+        return SongList.size();
+    }
 }
