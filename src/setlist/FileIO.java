@@ -121,7 +121,9 @@ public class FileIO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        if (out != null){
+            out.println("catalog_size:" + source.size());
+        }
         for(Object i:source.reviewSongList()){
             if (out != null) {
                 out.println("#song");
