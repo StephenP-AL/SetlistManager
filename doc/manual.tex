@@ -1,42 +1,55 @@
 \documentclass{article}
-\title{Setlist Manager}
+\title{\textbf{Setlist Manager}\\ \large{Official User Manual}}
+\date{\vspace{-5ex}}
 \usepackage[margin=1in]{geometry}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \graphicspath{{img/}}
 \newcommand{\imgbox}[2]{\fcolorbox{darkgray}{white}{\includegraphics[width=#1px]{#2}}}
+\newcommand{\cont}[1]{\noindent \fcolorbox{darkgray}{orange}{\begin{minipage}{200px} \section{#1} \end{minipage}}\\}
+\newcommand{\scont}[1]{\noindent \fcolorbox{darkgray}{olive}{\begin{minipage}{200px} \subsection{#1} \end{minipage}}\\}
 
 \renewcommand{\familydefault}{\sfdefault}
 \begin{document}
-\indent \fcolorbox{darkgray}{cyan}{\Huge{Setlist Manager}}\\
-\indent Official User Manual\\\\
-Contents\\
-\fcolorbox{darkgray}{lightgray}{\begin{minipage}{300px} \begin{itemize}
-	\item \textbf{Introduction}
-	\item \textbf{Section I: Catalog Management}
-		\begin{itemize}
-	\item Open an Existing Catalog
-	\item Add or Edit a Song
-	\item Export/Save your Catalog
-		\end{itemize}
-	\item \textbf{Section II: Setlist Generation}
-		\begin{itemize}
-	\item Configure Setlist Settings
-	\item Generate a Setlist
-	\item Export a Setlist
-		\end{itemize}
-\end{itemize}
-\end{minipage}}\\\\\\
-\fcolorbox{darkgray}{orange}{\Large{Introduction}}\\\\
-Setlist Manager allows musicians to generate semi-random setlists for live music performance.\\\\
-\fcolorbox{darkgray}{orange}{\Large{Section I: Catalog Management}}\\\\
-open an existing catalog\\
-add a song to your catalog\\
-export your catalog\\
+\maketitle
+\fcolorbox{darkgray}{lightgray}{\begin{minipage}{300px} \tableofcontents \end{minipage}}\\\\\\
+\cont{Introduction}
 
-Setlist creation\\
-Configure setlist settings
-Generate setlist
-Warning
-Export 
+Setlist Manager allows musicians to generate semi-random setlists for live music performance.\\
+
+\cont{Catalog Management}
+
+Select the Catalog tab at the top of the window to manage your song catalog.\\
+The song catalog is arranged alphabetically by composer, then title.\\
+
+\scont{Open a Song Catalog}
+\begin{enumerate}
+\item Go to the Catalog tab
+\item Click the Open Catalog button located at the right side of the window.
+\item Use the file browser to locate a song catalog file.
+\end{enumerate}
+
+\scont{Add/Edit a Song}
+\begin{enumerate}
+	\item Click the Edit button next to an existing song in your catalog, or Click the Add button on the right side of the window.
+	\item Enter the song title
+	\item Enter the composer
+	\item Enter the length of the song in seconds
+	\item Enter the song's key
+	\item Enter the song's tempo in beats-per-minute(BPM)
+	\item Enter an introduction time in seconds. The introduction time can be used to tell a story, explain a song's meaning, or introduce members of the band.
+	\item Enter the song's genre. For songs that fit multiple genres, use a comma to in between each genre.. 
+	\item The Archive checkbox prevents a song from being added to a setlist, but it will still be visible in the song catalog.
+\end{enumerate}
+
+\scont{Save/Export the Song Catalog}
+
+\cont{Setlist Creation}
+
+\scont{Configure Setlist Length and Breaks}
+\scont{Filter Songs}
+\scont{Generate Setlist}
+Select the Generate Setlist button to create a new setlist based on your settings.\\
+You may see a warning, and generate an incomplete setlist if there are not enough songs in the catalog.
+\scont{Export/Share a Setlist}
 \end{document}
