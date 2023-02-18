@@ -10,12 +10,14 @@
 \newcommand{\scont}[1]{\noindent \fcolorbox{darkgray}{olive}{\begin{minipage}{200px} \subsection{#1} \end{minipage}}\\}
 
 \renewcommand{\familydefault}{\sfdefault}
+\usepackage{hyperref}
 \begin{document}
 \maketitle
 \noindent \fcolorbox{darkgray}{lightgray}{\begin{minipage}{300px} \tableofcontents \end{minipage}}\\\\\\
 \cont{Introduction}
 
-Setlist Manager allows musicians to generate semi-random setlists for live music performance.\\\\
+Setlist Manager allows musicians to generate semi-random setlists for live music performance.\\
+\textcolor{blue}{\url{https://github.com/DaddyWarcrimes/SetlistManager}}\\\\
 \cont{Catalog Management}
 
 Select the "Catalog" tab \includegraphics[width=20px]{tabCatalog.PNG} at the top of the window to manage your song catalog.\\
@@ -57,6 +59,7 @@ The song catalog is arranged alphabetically by composer, then title.\\
 Select the "Setlist" tab \includegraphics[width=20px]{tabSetlist.PNG} at the top of the window to create setlists.\\
 
 \scont{Configure Setlist Length and Breaks}
+\label{sec:configSetlist}
 \begin{enumerate}
 	\item In the "Setlist" tab, click the "Setlist Settings" button \includegraphics[width=30px]{setlistSettings.PNG} to open the Setlist Settings window.\\
 		\imgbox{175}{setlistLength.PNG}
@@ -68,6 +71,7 @@ Select the "Setlist" tab \includegraphics[width=20px]{tabSetlist.PNG} at the top
 \end{enumerate}
 
 \scont{Filter Songs Individually}
+\label{sec:filterInd}
 \begin{enumerate}
 	\item Locate the song in the "Catalog" tab, and click the "Edit" button.\\\\
 		\imgbox{270}{archiveListing.PNG}\\\\
@@ -78,6 +82,7 @@ Select the "Setlist" tab \includegraphics[width=20px]{tabSetlist.PNG} at the top
 The song will not be added to setlists until the check is removed.\\
 
 \scont{Filter Songs by Genre}
+\label{sec:filterGenre}
 \begin{enumerate}
 	\item In the "Setlist" tab, click the "Setlist Settings" button \includegraphics[width=30px]{setlistSettings.PNG} to open the Setlist Settings window.\\
 	\item In the "Genre" field, enter any genre you wish to include in your setlist. \\\\
@@ -88,14 +93,15 @@ The song will not be added to setlists until the check is removed.\\
 		When the "Genre" field in Seltlist Settings is blank, all song genres will be available for a setlist.\\
 
 
-\scont{Generate a Setlist}\\\\
+\scont{Generate a Setlist}\\
+\label{sec:generate}
 \begin{minipage}{300px}
 \begin{enumerate}
-	\item Configure your setlist as described in the sections \textbf{Configure Setlist Length and Breaks}, \textbf{Filter Songs Individually}, and \textbf{Filter Songs by Genre}.
+	\item Configure your setlist as described in the sections \hyperref[sec:configSetlist]{\textbf{Configure Setlist Length and Breaks}}, \hyperref[sec:filterInd]{\textbf{Filter Songs Individually}}, and \hyperref[sec:filterGenre]{\textbf{Filter Songs by Genre}}.
 	\item In the "Setlist" tab, click the "Generate Setlist" button \includegraphics[width=30px]{generateSetlist.PNG} located at the right side of the window.\\
 		The generated setlist will display in the main window.\\
 		\textcolor{red}{Note}: You may see a warning, and generate an incomplete setlist if there are not enough songs in the catalog.\\\\
-		\imgbox{200}{incomplete.PNG}
+		\imgbox{240}{incomplete.PNG}
 \end{enumerate}
 \end{minipage}
 \begin{minipage}{40px} \end{minipage}
@@ -104,7 +110,7 @@ The song will not be added to setlists until the check is removed.\\
 \end{minipage}\\\\\\
 \scont{Export/Share a Setlist}
 \begin{enumerate}
-	\item Generate a setlist as described in the \textbf{Generate a Setlist} section.
+	\item Generate a setlist as described in the \hyperref[sec:generate]{\textbf{Generate a Setlist}} section.
 	\item In the "Setlist" tab, click the "Export Setlist" button \includegraphics[width=30px]{exportSetlist.PNG}\\
 		A file browser will appear.\\
 		
